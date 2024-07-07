@@ -34,6 +34,7 @@ const aliases = {
   primary: globals.carrot,
   secondary: globals.everglade,
   scaffold: colors.slate[100],
+  headline: colors.gray,
 };
 
 const config: Config = {
