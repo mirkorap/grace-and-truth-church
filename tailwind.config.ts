@@ -33,7 +33,7 @@ const globals = {
 const aliases = {
   primary: globals.carrot,
   secondary: globals.everglade,
-  body: colors.slate[100],
+  scaffold: colors.slate[100],
 };
 
 const config: Config = {
