@@ -11,9 +11,10 @@ export default function NavItem({ href, text }: NavItemOpts) {
   return (
     <Link
       href={href}
-      className={clsx('font-semibold text-headline-700 hover:text-headline-400', {
-        'text-primary-500 hover:text-primary-600': pathname === href,
-      })}
+      className={clsx(
+        'font-semibold text-headline-700 hover:text-headline-400',
+        { 'text-primary-500 hover:text-primary-600': pathname === href },
+      )}
     >
       {text}
     </Link>
