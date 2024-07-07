@@ -30,7 +30,7 @@ const globals = {
   },
 };
 
-const alias = {
+const aliases = {
   primary: globals.carrot,
   secondary: globals.everglade,
   body: colors.slate[100],
@@ -46,7 +46,7 @@ const config: Config = {
     extend: {
       colors: {
         ...globals,
-        ...alias,
+        ...aliases,
       },
     },
   },
