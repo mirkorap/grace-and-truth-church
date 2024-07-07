@@ -1,4 +1,5 @@
 import type { Config } from 'tailwindcss';
+import colors from 'tailwindcss/colors';
 
 const globals = {
   carrot: {
@@ -32,13 +33,14 @@ const globals = {
 const alias = {
   primary: globals.carrot,
   secondary: globals.everglade,
+  body: colors.slate[100],
 };
 
 const config: Config = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './containers/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
