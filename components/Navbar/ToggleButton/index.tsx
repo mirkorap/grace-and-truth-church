@@ -1,8 +1,8 @@
-import { NavToggle } from '@/types/Navbar';
+import { NavToggle as Options } from '@/types/Navbar';
 import clsx from 'clsx';
 import Image from 'next/image';
 
-export default function ToggleButton({ opened, onToggle }: NavToggle) {
+export default function ToggleButton({ opened, onToggle }: Options) {
   return (
     <button
       type='button'

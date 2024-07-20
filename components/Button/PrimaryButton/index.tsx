@@ -1,5 +1,5 @@
 import { Layouts } from '@/components/Button/constants';
-import { Button } from '@/types/Button';
+import { Button as Options } from '@/types/Button';
 
 export default function PrimaryButton({
   text,
@@ -7,7 +7,7 @@ export default function PrimaryButton({
   style,
   className,
   onClick,
-}: Button) {
+}: Options) {
   return (
     <button
       type={type}

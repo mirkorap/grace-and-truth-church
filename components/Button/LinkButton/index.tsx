@@ -1,5 +1,5 @@
 import { Layouts } from '@/components/Button/constants';
-import { LinkButton as Button } from '@/types/Button';
+import { LinkButton as Options } from '@/types/Button';
 import Link from 'next/link';
 
 export default function LinkButton({
@@ -8,7 +8,7 @@ export default function LinkButton({
   type,
   style,
   className,
-}: Button) {
+}: Options) {
   return (
     <Link
       href={href}

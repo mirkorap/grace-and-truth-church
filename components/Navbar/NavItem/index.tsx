@@ -1,11 +1,11 @@
 'use client';
 
-import { NavItemOpts } from '@/types/Navbar';
+import { NavItemOpts as Options } from '@/types/Navbar';
 import { clsx } from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-export default function NavItem({ href, text }: NavItemOpts) {
+export default function NavItem({ href, text }: Options) {
   const pathname = usePathname();
 
   return (
