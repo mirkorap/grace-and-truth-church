@@ -35,6 +35,7 @@ const aliases = {
   secondary: globals.everglade,
   scaffold: colors.slate[100],
   headline: colors.gray,
+  card: colors.white,
 };
 
 const config: Config = {
