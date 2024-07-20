@@ -37,7 +37,7 @@ export default function Navbar() {
           hidden: !opened,
         })}
       >
-        <div className='my-5 flex flex-col gap-5 sm:my-0 sm:flex-row sm:items-center sm:justify-center lg:justify-end sm:ps-5'>
+        <div className='my-5 flex flex-col gap-5 sm:my-0 sm:flex-row sm:items-center sm:justify-center sm:ps-5 lg:justify-end'>
           {NavItems.map((item) => (
             <NavItem key={item.id} href={item.href} text={item.text} />
           ))}

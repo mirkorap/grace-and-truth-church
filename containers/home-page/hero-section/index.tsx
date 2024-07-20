@@ -5,12 +5,12 @@ import Image from 'next/image';
 
 export default function HeroSection() {
   return (
-    <section id='home' className='w-full pt-44'>
-      <div className='mx-auto w-full max-w-[85rem] px-4 flex flex-col lg:flex-row items-center justify-between'>
-        <div className='lg:w-1/2 mb-10'>
+    <section id='home' className='w-full pb-72 pt-44'>
+      <div className='mx-auto flex w-full max-w-[85rem] flex-col items-center justify-between px-4 lg:flex-row'>
+        <div className='mb-10 lg:w-1/2'>
           <div className='flex flex-col items-center lg:items-start'>
             <HeadlineLarge
-              className='text-center lg:text-start mb-2'
+              className='mb-2 text-center lg:text-start'
               text='Benvenuto alla Chiesa Cristiana Evengelica "Grazia e Verità"'
             />
             <Quote
@@ -19,7 +19,7 @@ export default function HeroSection() {
               verse='Gv. 1:17'
             />
 
-            <div className='flex flex-wrap items-center gap-x-5 mt-8'>
+            <div className='mt-8 flex flex-wrap items-center gap-x-5'>
               <LinkButton
                 href='#'
                 type='button'
@@ -42,7 +42,7 @@ export default function HeroSection() {
                 height={520}
               />
             </div>
-            <div className='hidden lg:block lg:absolute lg:left-10 lg:top-20 lg:z-10'>
+            <div className='hidden lg:absolute lg:left-10 lg:top-20 lg:z-10 lg:block'>
               <Image
                 className='h-auto max-w-full rounded-lg'
                 src='/home/bible.jpg'
