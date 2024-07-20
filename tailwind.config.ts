@@ -50,6 +50,9 @@ const config: Config = {
         ...globals,
         ...aliases,
       },
+      screens: {
+        xs: '375px',
+      },
     },
   },
 };
