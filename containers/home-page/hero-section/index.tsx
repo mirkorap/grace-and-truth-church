@@ -6,11 +6,15 @@ import Image from 'next/image';
 export default function HeroSection() {
   return (
     <section id='home' className='w-full pt-44'>
-      <div className='mx-auto w-full max-w-[85rem] px-4 sm:flex sm:items-center sm:justify-between'>
-        <div className='sm:w-1/2 mb-10'>
-          <div className='flex flex-col'>
-            <HeadlineLarge text='Benvenuto alla Chiesa Cristiana Evengelica "Grazia e Verità"' />
+      <div className='mx-auto w-full max-w-[85rem] px-4 flex flex-col lg:flex-row items-center justify-between'>
+        <div className='lg:w-1/2 mb-10'>
+          <div className='flex flex-col items-center lg:items-start'>
+            <HeadlineLarge
+              className='text-center lg:text-start mb-2'
+              text='Benvenuto alla Chiesa Cristiana Evengelica "Grazia e Verità"'
+            />
             <Quote
+              className='text-center lg:text-start'
               text='...la grazia e la verità sono venute per mezzo di Gesù Cristo.'
               verse='Gv. 1:17'
             />
@@ -27,9 +31,9 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className='sm:w-1/2'>
+        <div className='lg:w-1/2'>
           <div className='relative h-[20rem] w-full max-w-3xl'>
-            <div className='absolute right-0 top-0'>
+            <div className='lg:absolute lg:right-0 lg:top-0'>
               <Image
                 className='h-auto max-w-full rounded-lg'
                 src='/home/cross.jpg'
@@ -38,7 +42,7 @@ export default function HeroSection() {
                 height={520}
               />
             </div>
-            <div className='hidden sm:block absolute left-10 top-20 z-10'>
+            <div className='hidden lg:block lg:absolute lg:left-10 lg:top-20 lg:z-10'>
               <Image
                 className='h-auto max-w-full rounded-lg'
                 src='/home/bible.jpg'
