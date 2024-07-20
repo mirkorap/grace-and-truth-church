@@ -2,12 +2,15 @@ export type ButtonType = 'button' | 'submit' | 'reset';
 
 export type ButtonStyle = 'contained' | 'outlined' | 'text';
 
-export type ButtonLayout = Record<ButtonStyle, string>;
+export type ButtonSize = 'large' | 'medium' | 'small';
+
+export type ButtonLayout = Record<ButtonStyle | ButtonSize, string>;
 
 export interface Button {
   text: string;
   type: ButtonType;
   style: ButtonStyle;
+  size: ButtonSize;
   className?: string;
   onClick?: () => void;
 }

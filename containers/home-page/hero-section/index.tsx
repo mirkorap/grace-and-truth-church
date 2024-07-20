@@ -24,9 +24,16 @@ export default function HeroSection() {
                 href='#'
                 type='button'
                 style='contained'
+                size='large'
                 text='Chi siamo'
               />
-              <LinkButton href='#' type='button' style='text' text='Sermoni' />
+              <LinkButton
+                href='#'
+                type='button'
+                style='text'
+                size='large'
+                text='Sermoni'
+              />
             </div>
           </div>
         </div>
