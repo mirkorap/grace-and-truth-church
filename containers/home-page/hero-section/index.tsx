@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function HeroSection() {
   return (
-    <section id='home' className='w-full pb-72 pt-44'>
+    <section id='home' className='w-full pt-44 xs:pb-8 md:pb-44 lg:pb-64'>
       <div className='mx-auto flex w-full max-w-[85rem] flex-col items-center justify-between px-4 lg:flex-row'>
         <div className='mb-10 lg:w-1/2'>
           <div className='flex flex-col items-center lg:items-start'>
