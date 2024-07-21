@@ -14,7 +14,7 @@ export default function LinkButton({
     <Link
       href={href}
       type={type}
-      className={`inline-flex items-center gap-x-2 rounded border text-sm font-semibold disabled:pointer-events-none disabled:opacity-50 ${Layouts[style]} ${Layouts[size]} ${className}`}
+      className={`inline-flex items-center gap-x-2 rounded border font-nunito text-sm font-semibold disabled:pointer-events-none disabled:opacity-50 ${Layouts[style]} ${Layouts[size]} ${className}`}
     >
       {text}
     </Link>
