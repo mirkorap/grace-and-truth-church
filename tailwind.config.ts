@@ -50,6 +50,10 @@ const config: Config = {
         ...globals,
         ...aliases,
       },
+      fontFamily: {
+        nunito: ['var(--font-nunito)'],
+        roboto: ['var(--font-roboto)'],
+      },
       screens: {
         xs: '375px',
       },

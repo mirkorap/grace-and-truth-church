@@ -1,9 +1,19 @@
 import './globals.css';
 import Header from '@/components/Header';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Nunito, Roboto } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+const nunito = Nunito({
+  weight: '500',
+  subsets: ['latin'],
+  variable: '--font-nunito',
+});
+
+const roboto = Roboto({
+  weight: '500',
+  subsets: ['latin'],
+  variable: '--font-roboto',
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>
+    <html lang='it'>
+      <body className={`${roboto.variable} ${nunito.variable}`}>
         <Header />
         {children}
       </body>

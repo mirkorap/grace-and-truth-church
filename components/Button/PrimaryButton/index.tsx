@@ -12,7 +12,7 @@ export default function PrimaryButton({
   return (
     <button
       type={type}
-      className={`inline-flex items-center gap-x-2 rounded border text-sm font-semibold disabled:pointer-events-none disabled:opacity-50 ${Layouts[style]} ${Layouts[size]} ${className}`}
+      className={`inline-flex items-center gap-x-2 rounded border font-nunito text-sm font-semibold disabled:pointer-events-none disabled:opacity-50 ${Layouts[style]} ${Layouts[size]} ${className}`}
       onClick={onClick}
     >
       {text}
