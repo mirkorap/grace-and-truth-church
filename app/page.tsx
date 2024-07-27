@@ -1,4 +1,5 @@
 import HeroSection from '@/containers/home-page/hero-section';
+import LastSermonsSection from '@/containers/home-page/last-sermons-section';
 import OurMeetingsSection from '@/containers/home-page/our-meetings-section';
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <main>
       <HeroSection />
       <OurMeetingsSection />
+      <LastSermonsSection />
     </main>
   );
 }
