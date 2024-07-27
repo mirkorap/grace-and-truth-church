@@ -1,6 +1,7 @@
 import BodyMedium from '@/components/Heading/BodyMedium';
 import TitleSmall from '@/components/Heading/TitleSmall';
 import { PostImage as PostImageOpts } from '@/types/Post';
+import { trans } from '@/types/Translation';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -22,17 +23,17 @@ export default function PostImage({
           height={1024}
         />
 
-        <div className='absolute bottom-0 flex bg-white p-3'>
+        <div className='absolute bottom-0 flex items-center bg-white p-3'>
           <Image
-            className='size-10 rounded-full object-cover object-center'
-            src='/home/cross.jpg'
+            className='size-6 object-cover object-center'
+            src={`/icons/${category}.svg`}
             alt=''
             width={1024}
             height={1024}
           />
 
           <div className='mx-4'>
-            <TitleSmall text={category} />
+            <TitleSmall text={trans[category]} />
             <BodyMedium text={author} />
           </div>
         </div>
