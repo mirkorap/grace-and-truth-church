@@ -1,7 +1,11 @@
 import './globals.css';
 import Header from '@/components/Header';
+import dayjs from 'dayjs';
+import 'dayjs/locale/it';
 import type { Metadata } from 'next';
 import { Nunito, Roboto } from 'next/font/google';
+
+dayjs.locale('it');
 
 const nunito = Nunito({
   weight: '500',
