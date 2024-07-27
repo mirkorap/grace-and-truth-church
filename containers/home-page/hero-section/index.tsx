@@ -11,7 +11,7 @@ export default function HeroSection() {
           <div className='flex flex-col items-center lg:items-start'>
             <HeadlineLarge
               className='mb-2 text-center lg:text-start'
-              text='Benvenuto alla Chiesa Cristiana Evengelica "Grazia e Verità"'
+              text='Benvenuto alla Chiesa Cristiana Evangelica "Grazia e Verità"'
             />
             <Quote
               className='text-center lg:text-start'
