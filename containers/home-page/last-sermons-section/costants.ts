@@ -3,7 +3,7 @@ import { Post } from '@/types/Post';
 export const Posts: Post[] = [
   {
     id: 1,
-    category: 'Grazia',
+    category: 'grace',
     author: 'Giuseppe Fortuna',
     title: 'Lorem ipsum dolor sit amet',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce erat nibh, sodales in elit et, scelerisque condimentum mauris.',
@@ -14,7 +14,7 @@ export const Posts: Post[] = [
   },
   {
     id: 2,
-    category: 'Salvezza',
+    category: 'salvation',
     author: 'Giuseppe Fortuna',
     title: 'Lorem ipsum dolor sit amet',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce erat nibh, sodales in elit et, scelerisque condimentum mauris.',
@@ -25,7 +25,7 @@ export const Posts: Post[] = [
   },
   {
     id: 3,
-    category: 'Santità',
+    category: 'prayer',
     author: 'Samuele Maodda',
     title: 'Lorem ipsum dolor sit amet',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce erat nibh, sodales in elit et, scelerisque condimentum mauris.',
