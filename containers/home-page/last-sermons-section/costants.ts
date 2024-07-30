@@ -1,21 +1,8 @@
-import { Post } from '@/types/Post';
+import { Thumbnail } from '@/types/Thumbnail';
 
-export const Posts: Post[] = [
+export const Thumbnails: Thumbnail[] = [
   {
     id: 1,
-    category: 'grace',
-    author: 'Giuseppe Fortuna',
-    title: 'Lorem ipsum dolor sit amet',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce erat nibh, sodales in elit et, scelerisque condimentum mauris.',
-    href: '/',
-    imgSrc: '/home/cross.jpg',
-    imgAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    publishedAt: new Date(Date.parse('2024-06-16')),
-  },
-  {
-    id: 2,
-    category: 'salvation',
-    author: 'Giuseppe Fortuna',
     title: 'Lorem ipsum dolor sit amet',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce erat nibh, sodales in elit et, scelerisque condimentum mauris.',
     href: '/',
@@ -24,14 +11,21 @@ export const Posts: Post[] = [
     publishedAt: new Date(Date.parse('2024-06-30')),
   },
   {
-    id: 3,
-    category: 'prayer',
-    author: 'Samuele Maodda',
+    id: 2,
     title: 'Lorem ipsum dolor sit amet',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce erat nibh, sodales in elit et, scelerisque condimentum mauris.',
     href: '/',
     imgSrc: '/home/cross.jpg',
     imgAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
     publishedAt: new Date(Date.parse('2024-07-07')),
+  },
+  {
+    id: 3,
+    title: 'Lorem ipsum dolor sit amet',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce erat nibh, sodales in elit et, scelerisque condimentum mauris.',
+    href: '/',
+    imgSrc: '/home/cross.jpg',
+    imgAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    publishedAt: new Date(Date.parse('2024-07-14')),
   },
 ];
