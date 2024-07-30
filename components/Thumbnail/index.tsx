@@ -19,7 +19,7 @@ export default function Thumbnail({
 
   return (
     <Link href={href}>
-      <div className='mb-4 rounded-lg bg-card p-4 shadow'>
+      <div className='mb-4 rounded-xl bg-card p-4 shadow'>
         <div className='flex justify-between'>
           <div>
             <TitleSmall text={date} className='text-primary-500' />
