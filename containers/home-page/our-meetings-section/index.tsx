@@ -13,6 +13,7 @@ export default function OurMeetingsSection() {
           <Quote
             text="Facciamo attenzione gli uni agli altri per incitarci all'amore e alle buone opere"
             verse='Eb. 10:24'
+            className='px-[10%]'
           />
         </div>
 
