@@ -16,7 +16,7 @@ export default function PostImage({
     <div className='relative'>
       <Link href={href}>
         <Image
-          className='lg:h-96 w-full rounded-xl object-cover object-center'
+          className='w-full rounded-xl object-cover object-center lg:h-96'
           src={imgSrc}
           alt={imgAlt}
           width={1024}
