@@ -1,4 +1,5 @@
 import './globals.css';
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import dayjs from 'dayjs';
 import 'dayjs/locale/it';
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body className={`${roboto.variable} ${nunito.variable}`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
