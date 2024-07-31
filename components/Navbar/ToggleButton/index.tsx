@@ -1,4 +1,4 @@
-import { NavToggle as Options } from '@/types/Navbar';
+import { ToggleButton as Options } from '@/types/Button';
 import clsx from 'clsx';
 import Image from 'next/image';
 

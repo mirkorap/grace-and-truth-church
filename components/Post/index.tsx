@@ -1,4 +1,4 @@
-import { PostOpts } from '@/types/Post';
+import { PostOpts as Options } from '@/types/Post';
 
 import PostBody from './PostBody';
 import PostImage from './PostImage';
@@ -12,7 +12,7 @@ export default function Post({
   imgSrc,
   imgAlt,
   publishedAt,
-}: PostOpts) {
+}: Options) {
   return (
     <div>
       <PostImage
