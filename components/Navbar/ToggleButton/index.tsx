@@ -12,7 +12,7 @@ export default function ToggleButton({ opened, onToggle }: Options) {
       onClick={onToggle}
     >
       <Image
-        src='/svg/menu.svg'
+        src='/icons/menu.svg'
         className={clsx('size-4', { hidden: opened })}
         alt='Open menu'
         width={24}
@@ -20,7 +20,7 @@ export default function ToggleButton({ opened, onToggle }: Options) {
       />
 
       <Image
-        src='/svg/close.svg'
+        src='/icons/close.svg'
         className={clsx('size-4', { hidden: !opened })}
         alt='Close menu'
         width={24}
