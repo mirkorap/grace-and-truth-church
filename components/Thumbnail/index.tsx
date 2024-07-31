@@ -1,7 +1,7 @@
 import BodyLarge from '@/components/Heading/BodyLarge';
 import TitleMedium from '@/components/Heading/TitleMedium';
 import TitleSmall from '@/components/Heading/TitleSmall';
-import { ThumbnailOpts } from '@/types/Thumbnail';
+import { ThumbnailOpts as Options } from '@/types/Thumbnail';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,7 +13,7 @@ export default function Thumbnail({
   imgSrc,
   imgAlt,
   publishedAt,
-}: ThumbnailOpts) {
+}: Options) {
   const formatted = dayjs(publishedAt).format('MMMM DD, YYYY');
   const date = formatted[0].toUpperCase() + formatted.slice(1);
 

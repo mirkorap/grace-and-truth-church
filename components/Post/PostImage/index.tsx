@@ -1,6 +1,6 @@
 import BodyMedium from '@/components/Heading/BodyMedium';
 import TitleSmall from '@/components/Heading/TitleSmall';
-import { PostImage as PostImageOpts } from '@/types/Post';
+import { PostImage as Options } from '@/types/Post';
 import { trans } from '@/types/Translation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -11,7 +11,7 @@ export default function PostImage({
   href,
   imgSrc,
   imgAlt,
-}: PostImageOpts) {
+}: Options) {
   return (
     <div className='relative'>
       <Link href={href}>

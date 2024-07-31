@@ -1,6 +1,6 @@
 'use client';
 
-import { NavItemOpts as Options } from '@/types/Navbar';
+import { NavItemOpts as Options } from '@/types/Nav';
 import { clsx } from 'clsx';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
