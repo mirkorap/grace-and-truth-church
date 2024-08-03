@@ -1,3 +1,5 @@
+import { Route } from 'next';
+
 export type ButtonType = 'button' | 'submit' | 'reset';
 
 export type ButtonStyle = 'contained' | 'outlined' | 'text';
@@ -17,7 +19,7 @@ export interface Button {
 }
 
 export interface LinkButton extends Omit<Button, 'onClick'> {
-  href: string;
+  href: Route;
 }
 
 export interface ToggleButton {

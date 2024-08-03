@@ -1,3 +1,5 @@
+import { Route } from 'next';
+
 export type PostImage = Omit<Post, 'id' | 'title' | 'text' | 'publishedAt'>;
 
 export type PostBody = Pick<Post, 'title' | 'text' | 'href' | 'publishedAt'>;
@@ -10,7 +12,7 @@ export interface Post {
   author: string;
   title: string;
   text: string;
-  href: string;
+  href: Route;
   imgSrc: string;
   imgAlt: string;
   publishedAt: Date;

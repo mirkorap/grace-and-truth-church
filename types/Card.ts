@@ -1,3 +1,5 @@
+import { Route } from 'next';
+
 export type CardImage = Pick<Card, 'href' | 'imgSrc' | 'imgAlt'>;
 
 export type CardBody = Pick<Card, 'title' | 'text' | 'href'>;
@@ -8,7 +10,7 @@ export interface Card {
   id: number;
   title: string;
   text: string;
-  href: string;
+  href: Route;
   imgSrc: string;
   imgAlt: string;
 }

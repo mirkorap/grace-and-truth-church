@@ -21,14 +21,14 @@ export default function HeroSection() {
 
             <div className='mt-8 flex flex-wrap items-center gap-x-5'>
               <LinkButton
-                href='#'
+                href='/'
                 type='button'
                 style='contained'
                 size='large'
                 text='Chi siamo'
               />
               <LinkButton
-                href='#'
+                href='/'
                 type='button'
                 style='text'
                 size='large'
