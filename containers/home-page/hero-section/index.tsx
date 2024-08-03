@@ -32,6 +32,7 @@ export default function HeroSection() {
                 type='button'
                 style='text'
                 size='large'
+                icon='play'
                 text='Sermoni'
               />
             </div>

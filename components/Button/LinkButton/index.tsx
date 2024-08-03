@@ -8,6 +8,7 @@ export default function LinkButton({
   type,
   style,
   size,
+  icon,
   className,
 }: Options) {
   return (
@@ -17,6 +18,8 @@ export default function LinkButton({
       className={`inline-flex items-center gap-x-2 rounded border font-nunito text-sm font-semibold disabled:pointer-events-none disabled:opacity-50 ${Layouts[style]} ${Layouts[size]} ${className}`}
     >
       {text}
+
+      {icon ? <i className={`icon-${icon} text-xl`}></i> : null}
     </Link>
   );
 }
