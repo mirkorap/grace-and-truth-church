@@ -1,4 +1,5 @@
 import './globals.css';
+import './icons.css';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import dayjs from 'dayjs';
