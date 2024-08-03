@@ -11,6 +11,7 @@ export interface Button {
   type: ButtonType;
   style: ButtonStyle;
   size: ButtonSize;
+  icon?: string;
   className?: string;
   onClick?: () => void;
 }

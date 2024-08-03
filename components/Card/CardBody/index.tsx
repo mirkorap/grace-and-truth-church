@@ -13,6 +13,7 @@ export default function CardBody({ title, text, href }: Options) {
         text='Vai alla pagina'
         type='button'
         style='outlined'
+        icon='forward'
         size='small'
       />
     </div>

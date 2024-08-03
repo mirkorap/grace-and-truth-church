@@ -6,6 +6,7 @@ export default function PrimaryButton({
   type,
   style,
   size,
+  icon,
   className,
   onClick,
 }: Options) {
@@ -16,6 +17,8 @@ export default function PrimaryButton({
       onClick={onClick}
     >
       {text}
+
+      {icon ? <i className={`icon-${icon} text-xl`}></i> : null}
     </button>
   );
 }
