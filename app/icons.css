@@ -1,7 +1,9 @@
 @font-face {
   font-family: 'church-icons';
-  src:  url('../public/fonts/church-icons.eot?6okrxo');
-  src:  url('../public/fonts/church-icons.eot?6okrxo#iefix') format('embedded-opentype'),
+  src: url('../public/fonts/church-icons.eot?6okrxo');
+  src:
+    url('../public/fonts/church-icons.eot?6okrxo#iefix')
+      format('embedded-opentype'),
     url('../public/fonts/church-icons.ttf?6okrxo') format('truetype'),
     url('../public/fonts/church-icons.woff?6okrxo') format('woff'),
     url('../public/fonts/church-icons.svg?6okrxo#church-icons') format('svg');
@@ -10,7 +12,8 @@
   font-display: block;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^='icon-'],
+[class*=' icon-'] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'church-icons' !important;
   speak: never;
@@ -26,32 +29,32 @@
 }
 
 .icon-play:before {
-  content: "\e907";
+  content: '\e907';
 }
 .icon-church:before {
-  content: "\e900";
+  content: '\e900';
 }
 .icon-close:before {
-  content: "\e901";
+  content: '\e901';
 }
 .icon-forgiveness:before {
-  content: "\e902";
+  content: '\e902';
 }
 .icon-forward:before {
-  content: "\e903";
+  content: '\e903';
 }
 .icon-grace:before {
-  content: "\e904";
+  content: '\e904';
 }
 .icon-love:before {
-  content: "\e905";
+  content: '\e905';
 }
 .icon-menu:before {
-  content: "\e906";
+  content: '\e906';
 }
 .icon-prayer:before {
-  content: "\e908";
+  content: '\e908';
 }
 .icon-salvation:before {
-  content: "\e909";
+  content: '\e909';
 }
