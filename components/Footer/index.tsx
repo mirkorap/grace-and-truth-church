@@ -8,7 +8,7 @@ import { NavItems } from './constants';
 
 export default function Footer() {
   return (
-    <footer className='w-full py-5'>
+    <footer className='w-full pb-5 pt-20'>
       <div className='mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
         <div className='mx-auto flex flex-col items-center text-center'>
           <Brand />
