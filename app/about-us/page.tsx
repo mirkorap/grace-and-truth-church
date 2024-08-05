@@ -1,3 +1,11 @@
+import Divider from '@/components/Divider';
+import HeroSection from '@/containers/about-us-page/hero-section';
+
 export default function AboutUs() {
-  return <h1>Chi siamo</h1>;
+  return (
+    <main>
+      <HeroSection />
+      <Divider className='mx-auto max-w-60 md:max-w-[30rem]' />
+    </main>
+  );
 }
