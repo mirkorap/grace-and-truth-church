@@ -8,27 +8,27 @@ export const NavItems: NavItem[] = [
   },
   {
     id: 2,
-    href: '/',
+    href: '/about-us',
     text: 'Chi siamo',
   },
   {
     id: 3,
-    href: '/',
+    href: '/meetings',
     text: 'Incontri',
   },
   {
     id: 4,
-    href: '/',
+    href: '/sermons',
     text: 'Sermoni',
   },
   {
     id: 5,
-    href: '/',
+    href: '/news',
     text: 'Ultime novità',
   },
   {
     id: 6,
-    href: '/',
+    href: '/contact-us',
     text: 'Contattaci',
   },
 ];
