@@ -8,7 +8,7 @@ export default function PrimaryButton({
   style,
   size,
   icon,
-  className,
+  className = '',
   onClick,
 }: Options) {
   return (

@@ -1,6 +1,6 @@
 import { Chip as Options } from '@/types/Chip';
 
-export default function Chip({ text, href, className }: Options) {
+export default function Chip({ text, href, className = '' }: Options) {
   return (
     <a href={href} target='_blank'>
       <span
