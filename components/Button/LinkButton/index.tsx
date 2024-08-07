@@ -10,7 +10,7 @@ export default function LinkButton({
   style,
   size,
   icon,
-  className,
+  className = '',
 }: Options) {
   return (
     <Link

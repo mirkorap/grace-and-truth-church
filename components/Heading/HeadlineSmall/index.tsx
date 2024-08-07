@@ -1,6 +1,6 @@
 import { Heading as Options } from '@/types/Heading';
 
-export default function HeadlineSmall({ text, className }: Options) {
+export default function HeadlineSmall({ text, className = '' }: Options) {
   return (
     <h3
       className={`font-roboto text-xl font-bold text-headline-700 lg:text-2xl ${className}`}
