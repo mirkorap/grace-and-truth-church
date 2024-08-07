@@ -1,3 +1,9 @@
+import ContactSection from '@/containers/contact-us-page/contact-section';
+
 export default function ContactUs() {
-  return <h1>Contattaci</h1>;
+  return (
+    <main>
+      <ContactSection />
+    </main>
+  );
 }
