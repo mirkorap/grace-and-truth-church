@@ -4,10 +4,10 @@ import Image from 'next/image';
 
 export default function HeroSection() {
   return (
-    <section id='hero' className='w-full px-4 pt-44 text-center'>
-      <div className='flex flex-col gap-y-2'>
+    <section id='hero' className='w-full px-4 pt-44'>
+      <div className='flex flex-col items-center gap-y-2'>
         <HeadlineLarge text='Chiesa Cristiana Evangelica Riformata' />
-        <HeadlineLarge className='mb-10' text='"Grazia e Verità"' />
+        <HeadlineLarge text='"Grazia e Verità"' className='mb-10' />
       </div>
 
       <div className='flex flex-col items-center'>
@@ -20,7 +20,7 @@ export default function HeroSection() {
         />
 
         <BodyLarge
-          className='mx-auto max-w-[40rem] !text-base md:!text-xl'
+          className='mx-auto max-w-[40rem] text-center !text-base md:!text-xl'
           text='Siamo una chiesa evangelica nata nel 2015, che vuole testimoniare che la grazia e la verità di Dio sono venute per mezzo di Gesù Cristo, il Figlio di Dio, il Salvatore.'
         />
       </div>
