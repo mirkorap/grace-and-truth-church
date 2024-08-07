@@ -1,4 +1,5 @@
 import { Layouts } from '@/components/Button/constants';
+import Icon from '@/components/Icon';
 import { LinkButton as Options } from '@/types/Button';
 import Link from 'next/link';
 
@@ -19,7 +20,7 @@ export default function LinkButton({
     >
       {text}
 
-      {icon ? <i className={`icon-${icon} text-xl`}></i> : null}
+      {icon ? <Icon name={icon} size='small' /> : null}
     </Link>
   );
 }
