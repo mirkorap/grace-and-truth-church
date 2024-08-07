@@ -1,4 +1,5 @@
 import { Layouts } from '@/components/Button/constants';
+import Icon from '@/components/Icon';
 import { Button as Options } from '@/types/Button';
 
 export default function PrimaryButton({
@@ -18,7 +19,7 @@ export default function PrimaryButton({
     >
       {text}
 
-      {icon ? <i className={`icon-${icon} text-xl`}></i> : null}
+      {icon ? <Icon name={icon} size='small' /> : null}
     </button>
   );
 }
