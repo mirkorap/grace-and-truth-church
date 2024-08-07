@@ -5,14 +5,14 @@ import DoctrinalItem from './doctrinal-item';
 
 export default function DoctrinalLinesSection() {
   return (
-    <section id='doctrinal-lines' className='w-full'>
+    <section id='doctrinal-lines' className='mb-32 w-full'>
       <div className='mx-auto flex max-w-[85rem] flex-col items-center px-6'>
         <HeadlineMedium
           text='Lineamenti Dottrinali'
           className='mb-20 text-primary-500'
         />
 
-        <ul className='list-decimal'>
+        <ul className='list-decimal space-y-10'>
           {DoctrinalItems.map((item) => {
             return (
               <DoctrinalItem
