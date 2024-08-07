@@ -58,3 +58,12 @@
 .icon-salvation:before {
   content: '\e909';
 }
+.icon-pin:before {
+  content: '\e90a';
+}
+.icon-phone:before {
+  content: '\e90b';
+}
+.icon-mail:before {
+  content: '\e90c';
+}
