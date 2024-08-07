@@ -4,7 +4,7 @@ export const ContactItems: ContactItem[] = [
   {
     id: 1,
     icon: 'pin',
-    text: 'Via Giuseppe Garibaldi 453 - 95029 Viagrande (CT)',
+    text: 'Via Giuseppe Garibaldi 453\n 95029 Viagrande (CT)',
   },
   {
     id: 2,
