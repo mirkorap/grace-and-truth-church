@@ -5,7 +5,7 @@ import { DoctrinalItemOpts as Options } from '@/containers/about-us-page/doctrin
 
 export default function DoctrinalItem({ title, text, verses }: Options) {
   return (
-    <li className='mb-10'>
+    <li>
       <TitleMedium text={title} />
       <BodyLarge text={text} />
 
