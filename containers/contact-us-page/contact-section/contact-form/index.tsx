@@ -6,7 +6,7 @@ import HeadlineMedium from '@/components/Heading/HeadlineMedium';
 
 export default function ContactForm() {
   return (
-    <div className='lg:min-w-[40rem]'>
+    <div className='w-full lg:w-8/12'>
       <div className='h-full rounded-xl border bg-white p-8 shadow-sm'>
         <div className='flex flex-col gap-y-2 text-center'>
           <HeadlineMedium text='Contattaci' />
@@ -21,7 +21,7 @@ export default function ContactForm() {
           method='POST'
           className='mt-8 flex flex-col space-y-4'
         >
-          <div className='flex flex-col gap-y-4 lg:flex-row lg:justify-between'>
+          <div className='flex flex-col gap-4 lg:flex-row'>
             <Input
               id='name'
               name='name'
