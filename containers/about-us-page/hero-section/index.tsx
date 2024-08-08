@@ -5,7 +5,7 @@ import Image from 'next/image';
 export default function HeroSection() {
   return (
     <section id='hero' className='w-full px-4 pt-44'>
-      <div className='flex flex-col items-center gap-y-2'>
+      <div className='flex flex-col gap-y-2 text-center'>
         <HeadlineLarge text='Chiesa Cristiana Evangelica Riformata' />
         <HeadlineLarge text='"Grazia e Verità"' className='mb-10' />
       </div>
