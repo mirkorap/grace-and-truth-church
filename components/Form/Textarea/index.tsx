@@ -9,7 +9,7 @@ export default function Textarea({
   rows,
 }: Options) {
   return (
-    <div className='flex flex-col gap-y-2'>
+    <div className='flex w-full flex-col gap-y-2'>
       <label className='font-semibold' htmlFor={id}>
         {label}
       </label>

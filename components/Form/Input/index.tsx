@@ -2,7 +2,7 @@ import { Input as Options } from '@/types/Form';
 
 export default function Input({ id, name, label, placeholder }: Options) {
   return (
-    <div className='flex flex-col gap-y-2'>
+    <div className='flex w-full flex-col gap-y-2'>
       <label className='font-semibold' htmlFor={id}>
         {label}
       </label>
