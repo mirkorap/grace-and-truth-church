@@ -6,3 +6,10 @@ export interface ContactItem {
   color: string;
   text: string;
 }
+
+export interface EmailTemplate {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}

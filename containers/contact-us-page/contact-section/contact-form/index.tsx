@@ -16,7 +16,11 @@ export default function ContactForm() {
           />
         </div>
 
-        <form className='mt-8 flex flex-col space-y-4'>
+        <form
+          action='/contact-us/api'
+          method='POST'
+          className='mt-8 flex flex-col space-y-4'
+        >
           <div className='flex flex-col gap-y-4 lg:flex-row lg:justify-between'>
             <Input
               id='name'
