@@ -28,7 +28,7 @@ export default function HeroSection() {
                 text='Chi siamo'
               />
               <LinkButton
-                href='/'
+                href='/sermons'
                 type='button'
                 style='text'
                 size='large'
