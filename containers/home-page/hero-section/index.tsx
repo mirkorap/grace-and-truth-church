@@ -21,7 +21,7 @@ export default function HeroSection() {
 
             <div className='mt-8 flex flex-wrap items-center gap-x-5'>
               <LinkButton
-                href='/'
+                href='/about-us'
                 type='button'
                 style='contained'
                 size='large'
