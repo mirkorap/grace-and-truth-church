@@ -6,11 +6,14 @@ import HeadlineMedium from '@/components/Heading/HeadlineMedium';
 
 export default function ContactForm() {
   return (
-    <div>
+    <div className='lg:min-w-[40rem]'>
       <div className='h-full rounded-xl border bg-white p-8 shadow-sm'>
         <div className='flex flex-col gap-y-2 text-center'>
           <HeadlineMedium text='Contattaci' />
-          <BodyLarge text='Compila il modulo qui sotto per inviarci un messaggio o per ricevere informazioni' />
+          <BodyLarge
+            text={`Compila il modulo qui sotto per inviarci un messaggio\n o per ricevere informazioni`}
+            className='lg:whitespace-pre-line'
+          />
         </div>
 
         <form className='mt-8 flex flex-col space-y-4'>
@@ -51,7 +54,7 @@ export default function ContactForm() {
             text='Invia messaggio'
             style='contained'
             size='medium'
-            className='self-end'
+            className='!block md:self-end'
           />
         </form>
       </div>
