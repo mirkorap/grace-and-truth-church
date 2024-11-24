@@ -8,11 +8,11 @@ export default function Input({ id, name, label, placeholder }: Options) {
       </label>
 
       <input
-        type='text'
+        className='rounded-md bg-gray-100 px-4 py-3 text-sm text-gray-800 outline-primary-500 focus:bg-transparent'
         id={id}
         name={name}
         placeholder={placeholder}
-        className='rounded-md bg-gray-100 px-4 py-3 text-sm text-gray-800 outline-primary-500 focus:bg-transparent'
+        type='text'
       ></input>
     </div>
   );

@@ -5,12 +5,12 @@ export default function Brand() {
   return (
     <Link href='/'>
       <Image
-        src='/logo.webp'
-        className='rounded-full'
-        alt='Logo Chiesa Grazia e Verità'
         priority
-        width={60}
+        alt='Logo Chiesa Grazia e Verità'
+        className='rounded-full'
         height={60}
+        src='/logo.webp'
+        width={60}
       />
     </Link>
   );

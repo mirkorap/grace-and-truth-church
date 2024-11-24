@@ -17,11 +17,11 @@ export default function Navbar() {
 
   return (
     <nav
+      aria-label='Global'
       className={clsx(
         'mx-auto w-full max-w-[85rem] px-4 sm:flex sm:items-center sm:justify-between',
         { shadow: opened },
       )}
-      aria-label='Global'
     >
       <div className='flex items-center justify-between'>
         <Brand />

@@ -15,12 +15,12 @@ export default function Textarea({
       </label>
 
       <textarea
+        className='resize-none rounded-md bg-gray-100 px-4 py-3 text-sm text-gray-800 outline-primary-500 focus:bg-transparent'
+        cols={cols}
         id={id}
         name={name}
-        cols={cols}
-        rows={rows}
         placeholder={placeholder}
-        className='resize-none rounded-md bg-gray-100 px-4 py-3 text-sm text-gray-800 outline-primary-500 focus:bg-transparent'
+        rows={rows}
       ></textarea>
     </div>
   );
