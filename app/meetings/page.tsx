@@ -1,3 +1,9 @@
+import SchedulingSection from '@/containers/meetings-page/scheduling-section';
+
 export default function Meetings() {
-  return <h1>Incontri</h1>;
+  return (
+    <main>
+      <SchedulingSection />
+    </main>
+  );
 }
