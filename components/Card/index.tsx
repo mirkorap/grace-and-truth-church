@@ -6,8 +6,8 @@ import CardImage from './CardImage';
 export default function Card({ title, text, href, imgSrc, imgAlt }: Options) {
   return (
     <div className='group flex flex-col overflow-hidden rounded-xl border bg-card shadow-sm transition hover:shadow-lg'>
-      <CardImage href={href} imgSrc={imgSrc} imgAlt={imgAlt} />
-      <CardBody title={title} text={text} href={href} />
+      <CardImage href={href} imgAlt={imgAlt} imgSrc={imgSrc} />
+      <CardBody href={href} text={text} title={title} />
     </div>
   );
 }

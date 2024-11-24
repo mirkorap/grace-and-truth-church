@@ -22,17 +22,17 @@ export default function Thumbnail({
       <div className='mb-4 rounded-xl bg-card p-4 shadow'>
         <div className='flex justify-between'>
           <div>
-            <TitleSmall text={date} className='text-primary-500' />
-            <TitleMedium text={title} className='my-1.5 underline' />
-            <BodyLarge text={text} className='line-clamp-2 lg:hidden' />
+            <TitleSmall className='text-primary-500' text={date} />
+            <TitleMedium className='my-1.5 underline' text={title} />
+            <BodyLarge className='line-clamp-2 lg:hidden' text={text} />
           </div>
 
           <Image
-            className='hidden rounded-xl object-cover object-center xs:size-20 sm:block'
-            src={imgSrc}
             alt={imgAlt}
-            width={1024}
+            className='hidden rounded-xl object-cover object-center xs:size-20 sm:block'
             height={1024}
+            src={imgSrc}
+            width={1024}
           />
         </div>
       </div>

@@ -11,10 +11,10 @@ export default function PostBody({ title, text, href, publishedAt }: Options) {
 
   return (
     <>
-      <TitleSmall text={date} className='mt-6 text-primary-500' />
+      <TitleSmall className='mt-6 text-primary-500' text={date} />
 
       <Link href={href}>
-        <TitleLarge text={title} className='my-3 underline' />
+        <TitleLarge className='my-3 underline' text={title} />
       </Link>
 
       <BodyLarge text={text} />

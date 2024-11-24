@@ -5,26 +5,26 @@ import Image from 'next/image';
 export default function ToggleButton({ opened, onToggle }: Options) {
   return (
     <button
-      type='button'
-      className='rounded-lg border border-gray-200 bg-white p-2 text-gray-800 shadow-sm hover:bg-gray-50'
       aria-controls='navbar-collapse-with-animation'
       aria-label='Toggle navigation'
+      className='rounded-lg border border-gray-200 bg-white p-2 text-gray-800 shadow-sm hover:bg-gray-50'
+      type='button'
       onClick={onToggle}
     >
       <Image
-        src='/icons/menu.svg'
-        className={clsx('size-4', { hidden: opened })}
         alt='Open menu'
-        width={24}
+        className={clsx('size-4', { hidden: opened })}
         height={24}
+        src='/icons/menu.svg'
+        width={24}
       />
 
       <Image
-        src='/icons/close.svg'
-        className={clsx('size-4', { hidden: !opened })}
         alt='Close menu'
-        width={24}
+        className={clsx('size-4', { hidden: !opened })}
         height={24}
+        src='/icons/close.svg'
+        width={24}
       />
     </button>
   );

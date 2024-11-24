@@ -16,18 +16,18 @@ export default function Post({
   return (
     <div>
       <PostImage
-        category={category}
         author={author}
+        category={category}
         href={href}
-        imgSrc={imgSrc}
         imgAlt={imgAlt}
+        imgSrc={imgSrc}
       />
 
       <PostBody
-        title={title}
-        text={text}
         href={href}
         publishedAt={publishedAt}
+        text={text}
+        title={title}
       />
     </div>
   );

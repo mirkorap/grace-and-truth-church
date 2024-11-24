@@ -16,20 +16,20 @@ export default function PostImage({
     <div className='relative'>
       <Link href={href}>
         <Image
-          className='w-full rounded-xl object-cover object-center lg:h-96'
-          src={imgSrc}
           alt={imgAlt}
-          width={1024}
+          className='w-full rounded-xl object-cover object-center lg:h-96'
           height={1024}
+          src={imgSrc}
+          width={1024}
         />
 
         <div className='absolute bottom-0 flex items-center bg-white p-3'>
           <Image
-            className='size-6 object-cover object-center'
-            src={`/icons/${category}.svg`}
             alt=''
-            width={1024}
+            className='size-6 object-cover object-center'
             height={1024}
+            src={`/icons/${category}.svg`}
+            width={1024}
           />
 
           <div className='mx-4'>

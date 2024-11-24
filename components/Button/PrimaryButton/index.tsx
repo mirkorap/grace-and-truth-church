@@ -13,8 +13,8 @@ export default function PrimaryButton({
 }: Options) {
   return (
     <button
-      type={type}
       className={`inline-flex items-center gap-x-2 rounded border font-nunito text-sm font-semibold disabled:pointer-events-none disabled:opacity-50 ${Layouts[style]} ${Layouts[size]} ${className}`}
+      type={type}
       onClick={onClick}
     >
       {text}

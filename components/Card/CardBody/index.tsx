@@ -10,11 +10,11 @@ export default function CardBody({ title, text, href }: Options) {
       <BodyLarge className='mb-5' text={text} />
       <LinkButton
         href={href}
-        text='Vai alla pagina'
-        type='button'
-        style='outlined'
         icon='forward'
         size='small'
+        style='outlined'
+        text='Vai alla pagina'
+        type='button'
       />
     </div>
   );
