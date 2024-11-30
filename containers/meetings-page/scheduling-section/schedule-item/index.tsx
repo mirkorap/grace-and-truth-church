@@ -14,17 +14,17 @@ export default function ScheduleItem({
   return (
     <div className='flex flex-col items-center overflow-hidden text-center xl:flex-row xl:text-left'>
       <Image
-        src={imgSrc}
-        className='h-auto w-full rounded-3xl object-cover xl:max-w-72'
         alt={imgAlt}
-        width={1024}
+        className='h-72 w-full rounded-3xl object-cover xl:max-w-72'
         height={1024}
+        src={imgSrc}
+        width={1024}
       />
 
       <div className='p-6'>
-        <TitleSmall text={time} className='uppercase !text-gray-500' />
-        <HeadlineSmall text={title} className='mt-1.5' />
-        <BodyLarge text={description} className='mt-1.5' />
+        <TitleSmall className='uppercase !text-gray-500' text={time} />
+        <HeadlineSmall className='mt-1.5' text={title} />
+        <BodyLarge className='mt-1.5' text={description} />
       </div>
     </div>
   );
