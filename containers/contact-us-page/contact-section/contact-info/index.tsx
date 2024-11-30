@@ -9,8 +9,8 @@ export default function ContactInfo() {
         return (
           <ContactItem
             key={item.id}
-            icon={item.icon}
             color={item.color}
+            icon={item.icon}
             text={item.text}
           />
         );
