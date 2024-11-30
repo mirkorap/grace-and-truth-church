@@ -14,8 +14,8 @@ export default function DoctrinalItem({ title, text, verses }: Options) {
           return (
             <Chip
               key={index}
-              text={verse}
               href={`https://www.laparola.net/testo.php?riferimento=${verse}`}
+              text={verse}
             />
           );
         })}

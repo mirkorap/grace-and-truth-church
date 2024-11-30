@@ -11,54 +11,54 @@ export default function ContactForm() {
         <div className='flex flex-col gap-y-2 text-center'>
           <HeadlineMedium text='Contattaci' />
           <BodyLarge
-            text={`Compila il modulo qui sotto per inviarci un messaggio\n o per ricevere informazioni`}
             className='lg:whitespace-pre-line'
+            text={`Compila il modulo qui sotto per inviarci un messaggio\n o per ricevere informazioni`}
           />
         </div>
 
         <form
           action='/contact-us/api'
-          method='POST'
           className='mt-8 flex flex-col space-y-4'
+          method='POST'
         >
           <div className='flex flex-col gap-4 lg:flex-row'>
             <Input
               id='name'
-              name='name'
               label='Nome'
+              name='name'
               placeholder='Nome Completo'
             />
 
             <Input
               id='email'
-              name='email'
               label='E-mail'
+              name='email'
               placeholder='Indirizzo E-mail'
             />
           </div>
 
           <Input
             id='subject'
-            name='subject'
             label='Oggetto'
+            name='subject'
             placeholder='Oggetto'
           />
 
           <Textarea
-            id='message'
-            name='message'
-            label='Messaggio'
-            placeholder='Scrivi qui il tuo messaggio'
             cols={4}
+            id='message'
+            label='Messaggio'
+            name='message'
+            placeholder='Scrivi qui il tuo messaggio'
             rows={6}
           />
 
           <PrimaryButton
-            type='submit'
-            text='Invia messaggio'
-            style='contained'
-            size='medium'
             className='!block md:self-end'
+            size='medium'
+            style='contained'
+            text='Invia messaggio'
+            type='submit'
           />
         </form>
       </div>

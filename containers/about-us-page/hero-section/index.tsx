@@ -4,19 +4,19 @@ import Image from 'next/image';
 
 export default function HeroSection() {
   return (
-    <section id='hero' className='w-full px-4 pt-44'>
+    <section className='w-full px-4 pt-44' id='hero'>
       <div className='flex flex-col gap-y-2 text-center'>
         <HeadlineLarge text='Chiesa Cristiana Evangelica Riformata' />
-        <HeadlineLarge text='"Grazia e Verità"' className='mb-10' />
+        <HeadlineLarge className='mb-10' text='"Grazia e Verità"' />
       </div>
 
       <div className='flex flex-col items-center'>
         <Image
-          className='mb-10 rounded-md shadow-md'
-          src='/about-us/church.webp'
           alt=''
-          width={1024}
+          className='mb-10 rounded-md shadow-md'
           height={768}
+          src='/about-us/church.webp'
+          width={1024}
         />
 
         <BodyLarge

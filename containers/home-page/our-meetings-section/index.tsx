@@ -6,14 +6,14 @@ import { CardItems } from './constants';
 
 export default function OurMeetingsSection() {
   return (
-    <section id='our-meetings' className='w-full bg-slate-200 py-32'>
+    <section className='w-full bg-slate-200 py-32' id='our-meetings'>
       <div className='mx-auto w-full'>
         <div className='mb-20 text-center'>
-          <DisplaySmall text='I nostri incontri' className='mb-5' />
+          <DisplaySmall className='mb-5' text='I nostri incontri' />
           <Quote
+            className='px-[10%]'
             text="Facciamo attenzione gli uni agli altri per incitarci all'amore e alle buone opere"
             verse='Eb. 10:24'
-            className='px-[10%]'
           />
         </div>
 
@@ -21,11 +21,11 @@ export default function OurMeetingsSection() {
           {CardItems.map((item) => (
             <Card
               key={item.id}
-              title={item.title}
-              text={item.text}
               href={item.href}
-              imgSrc={item.imgSrc}
               imgAlt={item.imgAlt}
+              imgSrc={item.imgSrc}
+              text={item.text}
+              title={item.title}
             />
           ))}
         </div>
