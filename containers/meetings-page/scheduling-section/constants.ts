@@ -7,8 +7,8 @@ export const ScheduleItems: ScheduleItem[] = [
     description:
       'Incontro in gruppi per approfondire e studiare la Parola di Dio',
     time: 'Ogni due lunedì - 19:00',
-    imgSrc: '/home/cross.jpg',
-    imgAlt: '',
+    imgSrc: '/meetings/life-group.jpg',
+    imgAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
   {
     id: 2,
@@ -16,8 +16,8 @@ export const ScheduleItems: ScheduleItem[] = [
     description:
       'Lettura e studio del libro "Ama tua moglie come Cristo ha amato la chiesa" di L. McCall',
     time: 'Ogni due lunedì — 19:00',
-    imgSrc: '/home/cross.jpg',
-    imgAlt: '',
+    imgSrc: '/meetings/men-meeting.jpg',
+    imgAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
   {
     id: 3,
@@ -25,8 +25,8 @@ export const ScheduleItems: ScheduleItem[] = [
     description:
       'Lettura e studio del libro "Gli attributi di Dio" di M. Alexander',
     time: 'Ogni due lunedì — 19:00',
-    imgSrc: '/home/cross.jpg',
-    imgAlt: '',
+    imgSrc: '/meetings/women-meeting.jpg',
+    imgAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
   {
     id: 4,
@@ -34,8 +34,8 @@ export const ScheduleItems: ScheduleItem[] = [
     description:
       'Incontro di preghiera con breve meditazione sulla Parola di Dio',
     time: 'Ogni mercoledì — 19:00',
-    imgSrc: '/home/cross.jpg',
-    imgAlt: '',
+    imgSrc: '/meetings/bible-study.jpg',
+    imgAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
   {
     id: 5,
@@ -43,8 +43,8 @@ export const ScheduleItems: ScheduleItem[] = [
     description:
       'Riunione in cui il gruppo giovani si riunisce per pregare e meditare assieme la Parola di Dio',
     time: 'Ogni mese — 18:00',
-    imgSrc: '/home/cross.jpg',
-    imgAlt: '',
+    imgSrc: '/meetings/youth-meeting.jpg',
+    imgAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
   {
     id: 6,
@@ -52,7 +52,7 @@ export const ScheduleItems: ScheduleItem[] = [
     description:
       'Riunione domenicale in cui la chiesa si riunisce per offrire il proprio culto a Dio',
     time: 'Ogni domenica — 10:30',
-    imgSrc: '/home/cross.jpg',
-    imgAlt: '',
+    imgSrc: '/meetings/church-meeting.jpg',
+    imgAlt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   },
 ];
