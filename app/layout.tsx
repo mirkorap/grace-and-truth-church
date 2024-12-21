@@ -2,6 +2,7 @@ import './globals.css';
 import './icons.css';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import dayjs from 'dayjs';
 import 'dayjs/locale/it';
 import type { Metadata } from 'next';
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body className={`${roboto.variable} ${nunito.variable}`}>
         <Header />
         {children}
+        <SpeedInsights />
         <Footer />
       </body>
     </html>
