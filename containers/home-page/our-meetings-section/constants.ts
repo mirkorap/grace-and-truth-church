@@ -4,7 +4,7 @@ export const CardItems: Card[] = [
   {
     id: 1,
     title: 'Ultime novità',
-    text: 'Gli eventi e le iniziative organizzate hanno lo scopo di promuovere l\'opera di Dio facendo conoscere agli uomini il lieto messaggio del Vangelo.',
+    text: "Gli eventi e le iniziative organizzate hanno lo scopo di promuovere l'opera di Dio facendo conoscere agli uomini il lieto messaggio del Vangelo.",
     href: '/news',
     imgSrc: '/home/last-news.jpg',
     imgAlt: '',
