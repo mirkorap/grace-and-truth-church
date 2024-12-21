@@ -2,13 +2,12 @@ import DisplaySmall from '@/components/Heading/DisplaySmall';
 import Quote from '@/components/Heading/Quote';
 import Post from '@/components/Post';
 import Thumbnail from '@/components/Thumbnail';
+import { getLatestSermons as endpoint } from '@/libs/endpoints';
 import { typedFetch } from '@/libs/utils';
 import { Sermon } from '@/types/Sermon';
 
 export default async function LastSermonsSection() {
-  const [lastSermon, ...latestSermons] = await typedFetch<Sermon[]>(
-    'http://localhost:3000/api/sermons/getLatest',
-  );
+  const [lastSermon, ...latestSermons] = await typedFetch<Sermon[]>(endpoint);
 
   return (
     <section className='w-full py-32' id='last-sermons'>
