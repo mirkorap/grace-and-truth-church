@@ -10,8 +10,8 @@ export type PostOpts = Omit<Post, 'id'>;
 
 export interface Post {
   id: number;
+  category: string;
   author: string;
-  book: string;
   title: string;
   text: Block;
   href: Route;

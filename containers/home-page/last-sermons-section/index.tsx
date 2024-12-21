@@ -27,7 +27,7 @@ export default async function LastSermonsSection() {
             <div className='lg:col-span-2'>
               <Post
                 author={lastSermon.author}
-                book={lastSermon.book}
+                category={lastSermon.book}
                 href='/'
                 imgAlt={lastSermon.title}
                 imgSrc={lastSermon.image}
