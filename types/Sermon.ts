@@ -1,3 +1,5 @@
+import { Block } from './Sanity';
+
 export interface Sermon {
   title: string;
   slug: string;
@@ -6,5 +8,5 @@ export interface Sermon {
   book: string;
   verses: string;
   image: string;
-  text: string;
+  text: Block;
 }

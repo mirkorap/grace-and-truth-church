@@ -2,10 +2,14 @@ import DisplaySmall from '@/components/Heading/DisplaySmall';
 import Quote from '@/components/Heading/Quote';
 import Post from '@/components/Post';
 import Thumbnail from '@/components/Thumbnail';
+import { typedFetch } from '@/libs/utils';
+import { Sermon } from '@/types/Sermon';
 
-import { Thumbnails } from './costants';
+export default async function LastSermonsSection() {
+  const [lastSermon, ...latestSermons] = await typedFetch<Sermon[]>(
+    'http://localhost:3000/api/sermons/getLatest',
+  );
 
-export default function LastSermonsSection() {
   return (
     <section className='w-full py-32' id='last-sermons'>
       <div className='mx-auto w-full'>
@@ -22,26 +26,25 @@ export default function LastSermonsSection() {
           <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
             <div className='lg:col-span-2'>
               <Post
-                author='Giuseppe Fortuna'
-                category='grace'
+                author={lastSermon.author}
+                book={lastSermon.book}
                 href='/'
-                imgAlt='Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                imgSrc='/home/cross.jpg'
-                publishedAt={new Date(Date.parse('2024-06-16'))}
-                text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce erat nibh, sodales in elit et, scelerisque condimentum mauris.'
-                title='Lorem ipsum dolor sit amet'
+                imgAlt={lastSermon.title}
+                imgSrc={lastSermon.image}
+                publishedAt={lastSermon.publishedAt}
+                text={lastSermon.text}
+                title={lastSermon.title}
               />
             </div>
 
             <div>
-              {Thumbnails.map((item) => (
+              {latestSermons.map((item) => (
                 <Thumbnail
-                  key={item.id}
-                  href={item.href}
-                  imgAlt={item.imgAlt}
-                  imgSrc={item.imgSrc}
+                  key={item.slug}
+                  href='/'
+                  imgAlt={item.title}
+                  imgSrc={item.image}
                   publishedAt={item.publishedAt}
-                  text={item.text}
                   title={item.title}
                 />
               ))}

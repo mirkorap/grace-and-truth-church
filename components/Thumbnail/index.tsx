@@ -1,4 +1,3 @@
-import BodyLarge from '@/components/Heading/BodyLarge';
 import TitleMedium from '@/components/Heading/TitleMedium';
 import TitleSmall from '@/components/Heading/TitleSmall';
 import { ThumbnailOpts as Options } from '@/types/Thumbnail';
@@ -8,7 +7,6 @@ import Link from 'next/link';
 
 export default function Thumbnail({
   title,
-  text,
   href,
   imgSrc,
   imgAlt,
@@ -24,7 +22,6 @@ export default function Thumbnail({
           <div>
             <TitleSmall className='text-primary-500' text={date} />
             <TitleMedium className='my-1.5 underline' text={title} />
-            <BodyLarge className='line-clamp-2 lg:hidden' text={text} />
           </div>
 
           <Image

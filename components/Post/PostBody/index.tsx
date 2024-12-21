@@ -1,8 +1,8 @@
-import BodyLarge from '@/components/Heading/BodyLarge';
 import TitleLarge from '@/components/Heading/TitleLarge';
 import TitleSmall from '@/components/Heading/TitleSmall';
 import { PostBody as Options } from '@/types/Post';
 import dayjs from 'dayjs';
+import { PortableText } from 'next-sanity';
 import Link from 'next/link';
 
 export default function PostBody({ title, text, href, publishedAt }: Options) {
@@ -17,7 +17,7 @@ export default function PostBody({ title, text, href, publishedAt }: Options) {
         <TitleLarge className='my-3 underline' text={title} />
       </Link>
 
-      <BodyLarge text={text} />
+      <PortableText value={text} />
     </>
   );
 }
