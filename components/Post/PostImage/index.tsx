@@ -6,8 +6,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function PostImage({
-  category,
   author,
+  book,
   href,
   imgSrc,
   imgAlt,
@@ -24,16 +24,8 @@ export default function PostImage({
         />
 
         <div className='absolute bottom-0 flex items-center bg-white p-3'>
-          <Image
-            alt=''
-            className='size-6 object-cover object-center'
-            height={1024}
-            src={`/icons/${category}.svg`}
-            width={1024}
-          />
-
           <div className='mx-4'>
-            <TitleSmall text={trans[category]} />
+            <TitleSmall text={trans[book]} />
             <BodyMedium text={author} />
           </div>
         </div>
