@@ -17,7 +17,7 @@ export default function OurMeetingsSection() {
           />
         </div>
 
-        <div className='mx-auto flex w-full max-w-[85rem] flex-col items-center justify-center gap-10 px-4 lg:flex-row'>
+        <div className='mx-auto flex w-full max-w-[85rem] flex-col items-stretch justify-center gap-10 px-4 lg:flex-row'>
           {CardItems.map((item) => (
             <Card
               key={item.id}
