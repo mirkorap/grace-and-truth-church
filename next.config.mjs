@@ -3,6 +3,9 @@ const nextConfig = {
   experimental: {
     typedRoutes: true,
   },
+  images: {
+    domains: ['cdn.sanity.io'],
+  },
 };
 
 export default nextConfig;
