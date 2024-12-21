@@ -48,7 +48,7 @@ export const ScheduleItems: ScheduleItem[] = [
   },
   {
     id: 6,
-    title: 'Culto della domenica',
+    title: 'Culto della Domenica',
     description:
       'Riunione domenicale in cui la chiesa si riunisce per offrire il proprio culto a Dio',
     time: 'Ogni domenica — 10:30',
