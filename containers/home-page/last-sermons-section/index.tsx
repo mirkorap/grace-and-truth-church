@@ -6,10 +6,12 @@ import { getLatestSermons as endpoint } from '@/libs/endpoints';
 import { typedFetch } from '@/libs/utils';
 import { Sermon } from '@/types/Sermon';
 
-export const revalidate = 3600;
+async function getLatestSermons() {
+  return typedFetch<Sermon[]>(endpoint);
+}
 
 export default async function LastSermonsSection() {
-  const [lastSermon, ...latestSermons] = await typedFetch<Sermon[]>(endpoint);
+  const [lastSermon, ...latestSermons] = await getLatestSermons();
 
   return (
     <section className='w-full py-32' id='last-sermons'>
