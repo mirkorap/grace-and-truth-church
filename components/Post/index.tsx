@@ -4,8 +4,8 @@ import PostBody from './PostBody';
 import PostImage from './PostImage';
 
 export default function Post({
+  category,
   author,
-  book,
   title,
   text,
   href,
@@ -17,7 +17,7 @@ export default function Post({
     <div>
       <PostImage
         author={author}
-        book={book}
+        category={category}
         href={href}
         imgAlt={imgAlt}
         imgSrc={imgSrc}
