@@ -5,12 +5,26 @@ import Thumbnail from '@/components/Thumbnail';
 import { getLatestSermons as endpoint } from '@/libs/endpoints';
 import { typedFetch } from '@/libs/utils';
 import { Sermon } from '@/types/Sermon';
+import { GetStaticProps } from 'next';
 
-export const revalidate = 3600;
+interface Props {
+  lastSermon: Sermon;
+  latestSermons: Sermon[];
+}
 
-export default async function LastSermonsSection() {
-  const latestSermons: any[] = [];
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const [lastSermon, ...latestSermons] = await typedFetch<Sermon[]>(endpoint);
 
+  return {
+    props: { lastSermon, latestSermons },
+    revalidate: 3600,
+  };
+};
+
+export default async function LastSermonsSection({
+  lastSermon,
+  latestSermons,
+}: Props) {
   return (
     <section className='w-full py-32' id='last-sermons'>
       <div className='mx-auto w-full'>
@@ -26,7 +40,7 @@ export default async function LastSermonsSection() {
         <div className='mx-auto w-full max-w-[85rem] px-4'>
           <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
             <div className='lg:col-span-2'>
-              {/* <Post
+              <Post
                 author={lastSermon.author}
                 category={lastSermon.book}
                 href='/'
@@ -35,7 +49,7 @@ export default async function LastSermonsSection() {
                 publishedAt={lastSermon.publishedAt}
                 text={lastSermon.text}
                 title={lastSermon.title}
-              /> */}
+              />
             </div>
 
             <div>
