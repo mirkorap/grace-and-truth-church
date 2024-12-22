@@ -9,7 +9,7 @@ import { Sermon } from '@/types/Sermon';
 export const revalidate = 3600;
 
 export default async function LastSermonsSection() {
-  const [lastSermon, ...latestSermons] = await typedFetch<Sermon[]>(endpoint);
+  const latestSermons: any[] = [];
 
   return (
     <section className='w-full py-32' id='last-sermons'>
@@ -26,7 +26,7 @@ export default async function LastSermonsSection() {
         <div className='mx-auto w-full max-w-[85rem] px-4'>
           <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
             <div className='lg:col-span-2'>
-              <Post
+              {/* <Post
                 author={lastSermon.author}
                 category={lastSermon.book}
                 href='/'
@@ -35,7 +35,7 @@ export default async function LastSermonsSection() {
                 publishedAt={lastSermon.publishedAt}
                 text={lastSermon.text}
                 title={lastSermon.title}
-              />
+              /> */}
             </div>
 
             <div>
