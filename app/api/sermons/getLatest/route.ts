@@ -1,6 +1,7 @@
 import { client } from '@/src/sanity/client';
 import { Sermon } from '@/types/Sermon';
 import { SanityDocument } from 'next-sanity';
+import { NextResponse } from 'next/server';
 
 const LATEST_SERMONS_QUERY = `*[
   _type == "sermon"
@@ -20,8 +21,8 @@ export async function GET() {
       options,
     );
 
-    return Response.json(sermons);
+    return NextResponse.json(sermons);
   } catch (error) {
-    return Response.json({ error }, { status: 500 });
+    return NextResponse.json({ error }, { status: 500 });
   }
 }
