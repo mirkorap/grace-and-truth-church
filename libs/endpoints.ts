@@ -1,14 +1,15 @@
-export const contactUs =
-  (process.env.NEXT_PUBLIC_SITE_URL ??
-    process?.env?.NEXT_PUBLIC_VERCEL_URL ??
-    'http://localhost:3000') + '/api/contact-us';
+const getBaseUrl = () => {
+  if (process.env.NEXT_PUBLIC_SITE_URL) {
+    return process.env.NEXT_PUBLIC_SITE_URL;
+  }
 
-export const getAllSermons =
-  (process.env.NEXT_PUBLIC_SITE_URL ??
-    process?.env?.NEXT_PUBLIC_VERCEL_URL ??
-    'http://localhost:3000') + '/api/sermons/getAll';
+  if (process.env.NEXT_PUBLIC_VERCEL_URL) {
+    return `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`;
+  }
 
-export const getLatestSermons =
-  (process.env.NEXT_PUBLIC_SITE_URL ??
-    process?.env?.NEXT_PUBLIC_VERCEL_URL ??
-    'http://localhost:3000') + '/api/sermons/getLatest';
+  return 'http://localhost:3000';
+};
+
+export const contactUs = `${getBaseUrl()}/api/contact-us`;
+export const getAll = `${getBaseUrl()}/api/sermons/getAll`;
+export const getLatestSermons = `${getBaseUrl()}/api/sermons/getLatest`;
