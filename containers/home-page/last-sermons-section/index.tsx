@@ -7,7 +7,9 @@ import { typedFetch } from '@/libs/utils';
 import { Sermon } from '@/types/Sermon';
 
 export default async function LastSermonsSection() {
-  const [lastSermon, ...latestSermons] = await typedFetch<Sermon[]>(endpoint);
+  const [lastSermon, ...latestSermons] = await typedFetch<Sermon[]>(endpoint, {
+    next: { revalidate: 3600 },
+  });
 
   return (
     <section className='w-full py-32' id='last-sermons'>
