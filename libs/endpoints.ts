@@ -11,5 +11,5 @@ const getBaseUrl = () => {
 };
 
 export const contactUs = `${getBaseUrl()}/api/contact-us`;
-export const getAll = `${getBaseUrl()}/api/sermons/getAll`;
+export const getAllSermons = `${getBaseUrl()}/api/sermons/getAll`;
 export const getLatestSermons = `${getBaseUrl()}/api/sermons/getLatest`;
