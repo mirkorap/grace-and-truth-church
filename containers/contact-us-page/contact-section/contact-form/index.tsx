@@ -17,7 +17,7 @@ export default function ContactForm() {
         </div>
 
         <form
-          action='api/contact-us'
+          action='/contact-us/api'
           className='mt-8 flex flex-col space-y-4'
           method='POST'
         >
