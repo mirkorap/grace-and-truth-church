@@ -44,8 +44,8 @@ export default function HeroSection() {
             <div className='lg:absolute lg:right-0 lg:top-0'>
               <Image
                 alt=''
-                height={520}
                 className='h-auto max-w-full rounded-lg'
+                height={520}
                 src='/home/cross.jpg'
                 width={560}
               />
@@ -53,8 +53,8 @@ export default function HeroSection() {
             <div className='hidden lg:absolute lg:left-10 lg:top-20 lg:z-10 lg:block'>
               <Image
                 alt=''
-                height={420}
                 className='h-auto max-w-full rounded-lg'
+                height={420}
                 src='/home/bible.jpg'
                 width={280}
               />

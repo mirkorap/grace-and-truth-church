@@ -14,6 +14,7 @@ export default function Thumbnail({
 }: Options) {
   const formatted = dayjs(publishedAt).format('MMMM DD, YYYY');
   const date = formatted[0].toUpperCase() + formatted.slice(1);
+
   return (
     <Link href={href}>
       <div className='mb-4 rounded-xl bg-card p-4 shadow'>
