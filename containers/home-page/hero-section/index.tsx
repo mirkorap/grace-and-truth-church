@@ -5,7 +5,7 @@ import { getImage } from '@/libs/utils';
 import Image from 'next/image';
 
 export default async function HeroSection() {
-  const backImg = await getImage('/about-us/church.webp');
+  const backImg = await getImage('/home/cross.jpg');
   const frontImg = await getImage('/home/bible.jpg');
 
   return (
