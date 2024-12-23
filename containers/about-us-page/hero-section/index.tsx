@@ -1,11 +1,8 @@
 import BodyLarge from '@/components/Heading/BodyLarge';
 import HeadlineLarge from '@/components/Heading/HeadlineLarge';
-import { getImage } from '@/libs/utils';
 import Image from 'next/image';
 
 export default async function HeroSection() {
-  const { base64, img } = await getImage('/about-us/church.webp');
-
   return (
     <section className='w-full px-4 pt-44' id='hero'>
       <div className='flex flex-col gap-y-2 text-center'>
@@ -15,11 +12,11 @@ export default async function HeroSection() {
 
       <div className='flex flex-col items-center'>
         <Image
-          {...img}
           alt=''
-          blurDataURL={base64}
           className='mb-10 rounded-md shadow-md'
-          placeholder='blur'
+          height={768}
+          src='/about-us/church.webp'
+          width={1024}
         />
 
         <BodyLarge

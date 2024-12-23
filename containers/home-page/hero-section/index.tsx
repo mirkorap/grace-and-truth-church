@@ -1,13 +1,9 @@
 import LinkButton from '@/components/Button/LinkButton';
 import HeadlineLarge from '@/components/Heading/HeadlineLarge';
 import Quote from '@/components/Heading/Quote';
-import { getImage } from '@/libs/utils';
 import Image from 'next/image';
 
 export default async function HeroSection() {
-  const backImg = await getImage('/home/cross.jpg');
-  const frontImg = await getImage('/home/bible.jpg');
-
   return (
     <section className='w-full pt-44 xs:pb-8 md:pb-44 lg:pb-64' id='hero'>
       <div className='mx-auto flex w-full max-w-[85rem] flex-col items-center justify-between px-4 lg:flex-row'>
@@ -48,22 +44,20 @@ export default async function HeroSection() {
             <div className='lg:absolute lg:right-0 lg:top-0'>
               <Image
                 alt=''
-                blurDataURL={backImg.base64}
                 height={520}
                 className='h-auto max-w-full rounded-lg'
                 placeholder='blur'
-                src={backImg.img.src}
+                src='/home/cross.jpg'
                 width={560}
               />
             </div>
             <div className='hidden lg:absolute lg:left-10 lg:top-20 lg:z-10 lg:block'>
               <Image
                 alt=''
-                blurDataURL={frontImg.base64}
                 height={420}
                 className='h-auto max-w-full rounded-lg'
                 placeholder='blur'
-                src={frontImg.img.src}
+                src='/home/bible.jpg'
                 width={280}
               />
             </div>
