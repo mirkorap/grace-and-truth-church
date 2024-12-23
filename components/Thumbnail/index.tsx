@@ -1,11 +1,12 @@
 import TitleMedium from '@/components/Heading/TitleMedium';
 import TitleSmall from '@/components/Heading/TitleSmall';
+import { getImage } from '@/libs/utils';
 import { ThumbnailOpts as Options } from '@/types/Thumbnail';
 import dayjs from 'dayjs';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Thumbnail({
+export default async function Thumbnail({
   title,
   href,
   imgSrc,
@@ -14,6 +15,7 @@ export default function Thumbnail({
 }: Options) {
   const formatted = dayjs(publishedAt).format('MMMM DD, YYYY');
   const date = formatted[0].toUpperCase() + formatted.slice(1);
+  const { base64, img } = await getImage(imgSrc);
 
   return (
     <Link href={href}>
@@ -25,11 +27,11 @@ export default function Thumbnail({
           </div>
 
           <Image
+            {...img}
             alt={imgAlt}
+            blurDataURL={base64}
             className='hidden rounded-xl object-cover object-center xs:size-20 sm:block'
-            height={1024}
-            src={imgSrc}
-            width={1024}
+            placeholder='blur'
           />
         </div>
       </div>
