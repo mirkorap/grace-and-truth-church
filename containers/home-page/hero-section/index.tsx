@@ -47,20 +47,24 @@ export default async function HeroSection() {
           <div className='relative h-[20rem] w-full max-w-3xl'>
             <div className='lg:absolute lg:right-0 lg:top-0'>
               <Image
-                {...backImg.img}
                 alt=''
                 blurDataURL={backImg.base64}
+                height={520}
                 className='h-auto max-w-full rounded-lg'
                 placeholder='blur'
+                src={backImg.img.src}
+                width={560}
               />
             </div>
             <div className='hidden lg:absolute lg:left-10 lg:top-20 lg:z-10 lg:block'>
               <Image
-                {...frontImg.img}
                 alt=''
                 blurDataURL={frontImg.base64}
+                height={420}
                 className='h-auto max-w-full rounded-lg'
                 placeholder='blur'
+                src={frontImg.img.src}
+                width={280}
               />
             </div>
           </div>
