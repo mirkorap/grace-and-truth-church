@@ -2,7 +2,7 @@ import BodyLarge from '@/components/Heading/BodyLarge';
 import HeadlineLarge from '@/components/Heading/HeadlineLarge';
 import Image from 'next/image';
 
-export default async function HeroSection() {
+export default function HeroSection() {
   return (
     <section className='w-full px-4 pt-44' id='hero'>
       <div className='flex flex-col gap-y-2 text-center'>
