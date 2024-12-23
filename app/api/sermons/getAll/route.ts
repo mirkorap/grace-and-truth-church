@@ -1,9 +1,11 @@
 import { client } from '@/src/sanity/client';
 import { Sermon } from '@/types/Sermon';
-import { SanityDocument } from 'next-sanity';
+import { SanityDocument, groq } from 'next-sanity';
 import { NextResponse } from 'next/server';
 
-const ALL_SERMONS_QUERY = `*[
+export const dynamic = 'force-dynamic';
+
+const ALL_SERMONS_QUERY = groq`*[
   _type == "sermon"
 ]{
   title, publishedAt, author, book, verses, text,
