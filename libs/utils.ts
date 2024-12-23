@@ -5,7 +5,7 @@ export async function typedFetch<T>(
   const response = await fetch(url, options);
 
   if (!response.ok) {
-    throw new Error(`HTTP error! status: ${await response.text()}`);
+    throw new Error(`HTTP error! status: ${response.status}`);
   }
 
   return response.json();

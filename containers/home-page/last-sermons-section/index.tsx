@@ -2,15 +2,15 @@ import DisplaySmall from '@/components/Heading/DisplaySmall';
 import Quote from '@/components/Heading/Quote';
 import Post from '@/components/Post';
 import Thumbnail from '@/components/Thumbnail';
-import { getLatestSermons as endpoint } from '@/libs/endpoints';
-import { typedFetch } from '@/libs/utils';
 import { Sermon } from '@/types/Sermon';
 
-export default async function LastSermonsSection() {
-  const [lastSermon, ...latestSermons] = await typedFetch<Sermon[]>(endpoint, {
-    next: { revalidate: 3600 },
-  });
-
+export default async function LastSermonsSection({
+  lastSermon,
+  latestSermons,
+}: {
+  lastSermon: Sermon;
+  latestSermons: Sermon[];
+}) {
   return (
     <section className='w-full py-32' id='last-sermons'>
       <div className='mx-auto w-full'>
