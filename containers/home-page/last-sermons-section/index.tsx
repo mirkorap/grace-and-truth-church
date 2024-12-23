@@ -6,8 +6,6 @@ import { getLatestSermons as endpoint } from '@/libs/endpoints';
 import { typedFetch } from '@/libs/utils';
 import { Sermon } from '@/types/Sermon';
 
-export const dynamic = 'force-dynamic';
-
 export default async function LastSermonsSection() {
   const [lastSermon, ...latestSermons] = await typedFetch<Sermon[]>(endpoint, {
     next: { revalidate: 3600 },
