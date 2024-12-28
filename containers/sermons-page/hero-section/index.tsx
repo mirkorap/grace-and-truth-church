@@ -13,7 +13,7 @@ export default function HeroSection() {
           verse='Gv. 17:3'
         />
         <BodyLarge
-          className='mx-auto text-center !text-base md:!text-xl'
+          className='mx-auto mt-16 !text-base md:!text-xl'
           text='I sermoni presenti vengono dalle riunioni svolte durante la settimana, durante le quali la chiesa si riunisce per lodare Dio e ascoltare gli insegnamenti tratti dalla Sua Parola. Il nostro scopo è quello di conoscere di più Dio e aiutare altri a conoscerLo. Qui troverai gli insegnamenti tratti dallo studio sistematico della Sua Parola. Sono serie suddivise per libro della Bibbia, che è possibile filtrare usando la barra di destra.'
         />
       </div>
