@@ -10,3 +10,8 @@ export interface Sermon {
   image: string;
   text: Block;
 }
+
+export interface GroupedSermon {
+  book: string;
+  count: number;
+}
