@@ -46,14 +46,14 @@ export default async function LastSermonsSection() {
             </div>
 
             <div>
-              {latestSermons.map((item) => (
+              {latestSermons.map((sermon) => (
                 <Thumbnail
-                  key={item.slug}
+                  key={sermon.slug}
                   href='/'
-                  imgAlt={item.title}
-                  imgSrc={item.image}
-                  publishedAt={item.publishedAt}
-                  title={item.title}
+                  imgAlt={sermon.title}
+                  imgSrc={sermon.image}
+                  publishedAt={sermon.publishedAt}
+                  title={sermon.title}
                 />
               ))}
             </div>
