@@ -1,4 +1,4 @@
-import LinkButton from '@/components/Button/LinkButton';
+import RouteButton from '@/components/Button/RouteButton';
 import HeadlineLarge from '@/components/Heading/HeadlineLarge';
 import Quote from '@/components/Heading/Quote';
 import Image from 'next/image';
@@ -20,14 +20,14 @@ export default function HeroSection() {
             />
 
             <div className='mt-8 flex flex-wrap items-center gap-x-5'>
-              <LinkButton
+              <RouteButton
                 href='/about-us'
                 size='large'
                 style='contained'
                 text='Chi siamo'
                 type='button'
               />
-              <LinkButton
+              <RouteButton
                 href='/sermons'
                 icon='play'
                 size='large'

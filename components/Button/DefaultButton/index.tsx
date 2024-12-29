@@ -3,7 +3,7 @@ import { Button as Options } from '@/types/Button';
 
 import { Layouts } from './constants';
 
-export default function PrimaryButton({
+export default function DefaultButton({
   text,
   type,
   style,

@@ -19,6 +19,10 @@ export interface Button {
 }
 
 export interface LinkButton extends Omit<Button, 'onClick'> {
+  href: string;
+}
+
+export interface RouteButton extends Omit<Button, 'onClick'> {
   href: Route;
 }
 

@@ -1,26 +1,27 @@
 import Icon from '@/components/Icon';
-import { Button as Options } from '@/types/Button';
+import { RouteButton as Options } from '@/types/Button';
+import Link from 'next/link';
 
 import { Layouts } from './constants';
 
-export default function PrimaryButton({
+export default function RouteButton({
   text,
+  href,
   type,
   style,
   size,
   icon,
   className = '',
-  onClick,
 }: Options) {
   return (
-    <button
+    <Link
       className={`inline-flex items-center gap-x-2 rounded border font-nunito text-sm font-semibold disabled:pointer-events-none disabled:opacity-50 ${Layouts[style]} ${Layouts[size]} ${className}`}
+      href={href}
       type={type}
-      onClick={onClick}
     >
       {text}
 
       {icon ? <Icon name={icon} size='small' /> : null}
-    </button>
+    </Link>
   );
 }
