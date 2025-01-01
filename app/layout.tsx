@@ -8,7 +8,6 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/it';
 import type { Metadata } from 'next';
 import { Nunito, Roboto } from 'next/font/google';
-import { ReactNode } from 'react';
 
 dayjs.locale('it');
 
@@ -32,7 +31,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: ReactNode;
+  children: React.ReactNode;
 }>) {
   return (
     <html lang='it'>

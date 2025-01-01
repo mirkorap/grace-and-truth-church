@@ -1,5 +1,3 @@
-import { ReactNode } from 'react';
-
 export type ModalHeader = Pick<Modal, 'title' | 'onClose'>;
 
 export type ModalBody = Pick<Modal, 'children'>;
@@ -10,6 +8,6 @@ export interface Modal {
   title: string;
   href: string;
   opened: boolean;
-  children: ReactNode;
+  children: React.ReactNode;
   onClose: () => void;
 }
