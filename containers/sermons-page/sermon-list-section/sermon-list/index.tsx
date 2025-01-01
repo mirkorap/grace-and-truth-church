@@ -4,15 +4,22 @@ import Modal from '@/components/Modal';
 import Post from '@/components/Post';
 import VideoPlayer from '@/components/VideoPlayer';
 import { SermonList as Options } from '@/containers/sermons-page/sermon-list-section/types';
+import { useClientMediaQuery } from '@/hooks/device';
 import { Sermon, emptySermon as empty } from '@/types/Sermon';
 import { useState } from 'react';
 
 export default function SermonList({ sermons }: Options) {
   const [selected, setSelected] = useState<Sermon>(empty);
+  const isTablet = useClientMediaQuery('(min-width: 768px)');
   const opened = !!selected.slug;
 
   function onClick(sermon: Sermon) {
-    setSelected(sermon);
+    if (isTablet) {
+      setSelected(sermon);
+      return;
+    }
+
+    window.open(`https://www.youtube.com/watch?v=${sermon.slug}`, '_blank');
   }
 
   function onClose() {

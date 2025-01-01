@@ -5,16 +5,23 @@ import Post from '@/components/Post';
 import Thumbnail from '@/components/Thumbnail';
 import VideoPlayer from '@/components/VideoPlayer';
 import { LastSermons as Options } from '@/containers/home-page/last-sermons-section/types';
+import { useClientMediaQuery } from '@/hooks/device';
 import { emptySermon as empty } from '@/types/Sermon';
 import { Sermon } from '@/types/Sermon';
 import { useState } from 'react';
 
 export default function LastSermons({ featured, thumbnails }: Options) {
   const [selected, setSelected] = useState<Sermon>(empty);
+  const isTablet = useClientMediaQuery('(min-width: 768px)');
   const opened = !!selected.slug;
 
   function onClick(sermon: Sermon) {
-    setSelected(sermon);
+    if (isTablet) {
+      setSelected(sermon);
+      return;
+    }
+
+    window.open(`https://www.youtube.com/watch?v=${sermon.slug}`, '_blank');
   }
 
   function onClose() {
