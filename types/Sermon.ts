@@ -1,4 +1,4 @@
-import { Block, nullBlock } from './Sanity';
+import { Block, emptyBlock } from './Sanity';
 
 export type SermonFilterOpts = Omit<SermonFilter, 'id'>;
 
@@ -27,7 +27,7 @@ export interface SermonFilter {
   count: number;
 }
 
-export const nullSermon: Sermon = {
+export const emptySermon: Sermon = {
   title: '',
   slug: '',
   publishedAt: new Date(),
@@ -35,5 +35,5 @@ export const nullSermon: Sermon = {
   book: '',
   verses: '',
   image: '',
-  text: nullBlock,
+  text: emptyBlock,
 };

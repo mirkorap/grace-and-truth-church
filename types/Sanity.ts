@@ -23,7 +23,7 @@ export interface Block extends BlockStyle, BlockList {
   }>;
 }
 
-export const nullBlock: Block = {
+export const emptyBlock: Block = {
   _type: 'block',
   _key: '',
   style: 'blockquote',
