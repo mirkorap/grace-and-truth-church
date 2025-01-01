@@ -1,21 +1,27 @@
-import { Layouts } from '@/components/Button/constants';
-import { LinkButton as Button } from '@/types/Button';
-import Link from 'next/link';
+import Icon from '@/components/Icon';
+import { LinkButton as Options } from '@/types/Button';
+
+import { Layouts } from './constants';
 
 export default function LinkButton({
   text,
   href,
   type,
   style,
-  className,
-}: Button) {
+  size,
+  icon,
+  className = '',
+}: Options) {
   return (
-    <Link
+    <a
+      className={`inline-flex items-center gap-x-2 rounded border font-nunito text-sm font-semibold disabled:pointer-events-none disabled:opacity-50 ${Layouts[style]} ${Layouts[size]} ${className}`}
       href={href}
+      target='_blank'
       type={type}
-      className={`inline-flex items-center gap-x-2 rounded border px-4 py-3 text-sm font-semibold disabled:pointer-events-none disabled:opacity-50 sm:px-8 sm:py-4 ${Layouts[style]} ${className}`}
     >
       {text}
-    </Link>
+
+      {icon ? <Icon name={icon} size='small' /> : null}
+    </a>
   );
 }

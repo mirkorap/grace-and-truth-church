@@ -1,17 +1,17 @@
-import LinkButton from '@/components/Button/LinkButton';
+import RouteButton from '@/components/Button/RouteButton';
 import HeadlineLarge from '@/components/Heading/HeadlineLarge';
 import Quote from '@/components/Heading/Quote';
 import Image from 'next/image';
 
 export default function HeroSection() {
   return (
-    <section id='home' className='w-full pt-44'>
-      <div className='mx-auto w-full max-w-[85rem] px-4 flex flex-col lg:flex-row items-center justify-between'>
-        <div className='lg:w-1/2 mb-10'>
+    <section className='w-full pt-44 xs:pb-8 md:pb-44 lg:pb-64' id='hero'>
+      <div className='mx-auto flex w-full max-w-[85rem] flex-col items-center justify-between px-4 lg:flex-row'>
+        <div className='mb-10 lg:w-1/2'>
           <div className='flex flex-col items-center lg:items-start'>
             <HeadlineLarge
-              className='text-center lg:text-start mb-2'
-              text='Benvenuto alla Chiesa Cristiana Evengelica "Grazia e Verità"'
+              className='mb-2 text-center lg:text-start'
+              text='Benvenuto alla Chiesa Cristiana Evangelica "Grazia e Verità"'
             />
             <Quote
               className='text-center lg:text-start'
@@ -19,14 +19,22 @@ export default function HeroSection() {
               verse='Gv. 1:17'
             />
 
-            <div className='flex flex-wrap items-center gap-x-5 mt-8'>
-              <LinkButton
-                href='#'
-                type='button'
+            <div className='mt-8 flex flex-wrap items-center gap-x-5'>
+              <RouteButton
+                href='/about-us'
+                size='large'
                 style='contained'
                 text='Chi siamo'
+                type='button'
               />
-              <LinkButton href='#' type='button' style='text' text='Sermoni' />
+              <RouteButton
+                href='/sermons'
+                icon='play'
+                size='large'
+                style='text'
+                text='Sermoni'
+                type='button'
+              />
             </div>
           </div>
         </div>
@@ -35,20 +43,20 @@ export default function HeroSection() {
           <div className='relative h-[20rem] w-full max-w-3xl'>
             <div className='lg:absolute lg:right-0 lg:top-0'>
               <Image
-                className='h-auto max-w-full rounded-lg'
-                src='/home/cross.jpg'
                 alt=''
-                width={560}
+                className='h-auto max-w-full rounded-lg'
                 height={520}
+                src='/home/cross.jpg'
+                width={560}
               />
             </div>
-            <div className='hidden lg:block lg:absolute lg:left-10 lg:top-20 lg:z-10'>
+            <div className='hidden lg:absolute lg:left-10 lg:top-20 lg:z-10 lg:block'>
               <Image
-                className='h-auto max-w-full rounded-lg'
-                src='/home/bible.jpg'
                 alt=''
-                width={280}
+                className='h-auto max-w-full rounded-lg'
                 height={420}
+                src='/home/bible.jpg'
+                width={280}
               />
             </div>
           </div>

@@ -1,8 +1,10 @@
-import { Verse } from '@/types/Heading';
+import { Verse as Options } from '@/types/Heading';
 
-export default function Quote({ text, verse, className }: Verse) {
+export default function Quote({ text, verse, className = '' }: Options) {
   return (
-    <p className={`text-lg lg:text-xl italic text-headline-600 ${className}`}>
+    <p
+      className={`font-nunito text-lg italic text-headline-600 lg:text-xl ${className}`}
+    >
       {text} <br></br> ({verse})
     </p>
   );

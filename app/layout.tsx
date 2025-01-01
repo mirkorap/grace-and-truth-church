@@ -1,9 +1,27 @@
 import './globals.css';
+import './icons.css';
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import dayjs from 'dayjs';
+import 'dayjs/locale/it';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Nunito, Roboto } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+dayjs.locale('it');
+
+const nunito = Nunito({
+  weight: '500',
+  subsets: ['latin'],
+  variable: '--font-nunito',
+});
+
+const roboto = Roboto({
+  weight: '500',
+  subsets: ['latin'],
+  variable: '--font-roboto',
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,10 +34,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={inter.className}>
+    <html lang='it'>
+      <body className={`${roboto.variable} ${nunito.variable}`}>
         <Header />
         {children}
+        <Analytics />
+        <SpeedInsights />
+        <Footer />
       </body>
     </html>
   );

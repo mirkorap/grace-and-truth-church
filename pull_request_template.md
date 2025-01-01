@@ -12,6 +12,7 @@
 Includi un riepilogo della modifica e indica quale problema è stato risolto indicando il numero del task.
 Si prega di includere anche la motivazione e il contesto pertinenti.
 -->
+
 ...
 
 ## Screenshots

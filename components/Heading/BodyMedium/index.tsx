@@ -1,9 +1,9 @@
-import { Heading } from '@/types/Heading';
+import { Heading as Options } from '@/types/Heading';
 
-export default function BodyMedium({ text, className }: Heading) {
+export default function BodyMedium({ text, className = '' }: Options) {
   return (
     <p
-      className={`text-xs lg:text-sm font-medium text-headline-700 ${className}`}
+      className={`font-nunito text-xs font-medium text-headline-700 lg:text-sm ${className}`}
     >
       {text}
     </p>

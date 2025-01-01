@@ -1,20 +1,26 @@
-import { Layouts } from '@/components/Button/constants';
-import { Button } from '@/types/Button';
+import Icon from '@/components/Icon';
+import { Button as Options } from '@/types/Button';
+
+import { Layouts } from './constants';
 
 export default function PrimaryButton({
   text,
   type,
   style,
-  className,
+  size,
+  icon,
+  className = '',
   onClick,
-}: Button) {
+}: Options) {
   return (
     <button
+      className={`inline-flex items-center gap-x-2 rounded border font-nunito text-sm font-semibold disabled:pointer-events-none disabled:opacity-50 ${Layouts[style]} ${Layouts[size]} ${className}`}
       type={type}
-      className={`inline-flex items-center gap-x-2 rounded border px-4 py-3 text-sm font-semibold disabled:pointer-events-none disabled:opacity-50 sm:px-8 sm:py-4 ${Layouts[style]} ${className}`}
       onClick={onClick}
     >
       {text}
+
+      {icon ? <Icon name={icon} size='small' /> : null}
     </button>
   );
 }

@@ -1,9 +1,9 @@
-import { Heading } from '@/types/Heading';
+import { Heading as Options } from '@/types/Heading';
 
-export default function BodyLarge({ text, className }: Heading) {
+export default function BodyLarge({ text, className = '' }: Options) {
   return (
     <p
-      className={`text-sm lg:text-base font-medium text-headline-700 ${className}`}
+      className={`font-nunito text-sm font-medium text-headline-700 lg:text-base ${className}`}
     >
       {text}
     </p>

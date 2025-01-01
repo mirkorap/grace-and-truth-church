@@ -35,6 +35,7 @@ const aliases = {
   secondary: globals.everglade,
   scaffold: colors.slate[100],
   headline: colors.gray,
+  card: colors.white,
 };
 
 const config: Config = {
@@ -48,6 +49,21 @@ const config: Config = {
       colors: {
         ...globals,
         ...aliases,
+      },
+      fontFamily: {
+        nunito: ['var(--font-nunito)'],
+        roboto: ['var(--font-roboto)'],
+      },
+      screens: {
+        xs: '375px',
+      },
+      zIndex: {
+        60: '60',
+        70: '70',
+        80: '80',
+        90: '90',
+        100: '100',
+        infinite: '9999',
       },
     },
   },
