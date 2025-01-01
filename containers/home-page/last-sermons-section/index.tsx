@@ -20,7 +20,7 @@ export default async function LastSermonsSection() {
         </div>
 
         <div className='mx-auto w-full max-w-[85rem] px-4'>
-          <LastSermons featured={lastSermon} others={latestSermons} />
+          <LastSermons featured={lastSermon} thumbnails={latestSermons} />
         </div>
       </div>
     </section>

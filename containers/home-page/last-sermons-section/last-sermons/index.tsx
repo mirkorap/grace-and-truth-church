@@ -9,10 +9,10 @@ import { emptySermon as empty } from '@/types/Sermon';
 import { Sermon } from '@/types/Sermon';
 import { useState } from 'react';
 
-export default function LastSermons({ featured, others }: Options) {
+export default function LastSermons({ featured, thumbnails }: Options) {
   const [selected, setSelected] = useState<Sermon>(empty);
 
-  function onOpen(sermon: Sermon) {
+  function onClick(sermon: Sermon) {
     setSelected(sermon);
   }
 
@@ -32,19 +32,19 @@ export default function LastSermons({ featured, others }: Options) {
             publishedAt={featured.publishedAt}
             text={featured.text}
             title={featured.title}
-            onClick={() => onOpen(featured)}
+            onClick={() => onClick(featured)}
           />
         </div>
 
         <div>
-          {others.map((sermon) => (
+          {thumbnails.map((item) => (
             <Thumbnail
-              key={sermon.slug}
-              imgAlt={sermon.title}
-              imgSrc={sermon.image}
-              publishedAt={sermon.publishedAt}
-              title={sermon.title}
-              onClick={() => onOpen(sermon)}
+              key={item.slug}
+              imgAlt={item.title}
+              imgSrc={item.image}
+              publishedAt={item.publishedAt}
+              title={item.title}
+              onClick={() => onClick(item)}
             />
           ))}
         </div>
