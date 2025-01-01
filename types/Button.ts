@@ -1,4 +1,5 @@
 import { Route } from 'next';
+import { RequireExactlyOne } from 'type-fest';
 
 export type ButtonType = 'button' | 'submit' | 'reset';
 
@@ -7,6 +8,8 @@ export type ButtonStyle = 'contained' | 'outlined' | 'text';
 export type ButtonSize = 'large' | 'medium' | 'small';
 
 export type ButtonLayout = Record<ButtonStyle | ButtonSize, string>;
+
+export type IconButton = RequireExactlyOne<Button, 'icon'>;
 
 export interface Button {
   text: string;
