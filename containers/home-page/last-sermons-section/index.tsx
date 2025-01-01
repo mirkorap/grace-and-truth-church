@@ -2,18 +2,7 @@ import DisplaySmall from '@/components/Heading/DisplaySmall';
 import Quote from '@/components/Heading/Quote';
 import Post from '@/components/Post';
 import Thumbnail from '@/components/Thumbnail';
-import { LATEST_SERMONS_QUERY } from '@/libs/queries';
-import { client } from '@/src/sanity/client';
-import { Sermon } from '@/types/Sermon';
-import { SanityDocument } from 'next-sanity';
-
-const fetchLatestSermons = () => {
-  return client.fetch<SanityDocument<Sermon>[]>(
-    LATEST_SERMONS_QUERY,
-    {},
-    { next: { revalidate: 3600 } },
-  );
-};
+import { fetchLatestSermons } from '@/libs/queries';
 
 export default async function LastSermonsSection() {
   const [lastSermon, ...latestSermons] = await fetchLatestSermons();

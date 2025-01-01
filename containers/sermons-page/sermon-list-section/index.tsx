@@ -1,46 +1,6 @@
 import Filterbar from '@/components/Filterbar';
 import Post from '@/components/Post';
-import {
-  ALL_SERMONS_QUERY,
-  SERMONS_GROUPED_BY_BOOK_QUERY,
-} from '@/libs/queries';
-import { client } from '@/src/sanity/client';
-import { GroupedSermon, Sermon, SermonFilter } from '@/types/Sermon';
-import { trans } from '@/types/Translation';
-import { SanityDocument } from 'next-sanity';
-
-const fetchAllSermons = () => {
-  return client.fetch<SanityDocument<Sermon>[]>(
-    ALL_SERMONS_QUERY,
-    {},
-    { next: { revalidate: 3600 } },
-  );
-};
-
-const fetchOnlyBooksUsedInSermons = async () => {
-  const docs = await client.fetch<SanityDocument<GroupedSermon>[]>(
-    SERMONS_GROUPED_BY_BOOK_QUERY,
-    {},
-    { next: { revalidate: 3600 } },
-  );
-
-  return docs.reduce((acc: SermonFilter[], curr, index) => {
-    const found = acc.findIndex((o) => o.value === curr.book);
-
-    if (found === -1) {
-      const book: SermonFilter = {
-        id: index + 1,
-        text: trans[curr.book],
-        value: curr.book,
-        count: curr.count,
-      };
-
-      return [...acc, book];
-    }
-
-    return acc;
-  }, []);
-};
+import { fetchAllSermons, fetchOnlyBooksUsedInSermons } from '@/libs/queries';
 
 export default async function SermonListSection() {
   const sermons = await fetchAllSermons();
