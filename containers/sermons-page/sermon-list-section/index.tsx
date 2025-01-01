@@ -1,10 +1,9 @@
-import { fetchAllSermons, fetchOnlyBooksUsedInSermons } from '@/libs/queries';
+import { fetchAllSermons } from '@/libs/queries';
 
 import SermonList from './sermon-list';
 
 export default async function SermonListSection() {
   const sermons = await fetchAllSermons();
-  const books = await fetchOnlyBooksUsedInSermons();
 
   return (
     <section className='w-full py-8' id='sermon-list'>
