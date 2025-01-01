@@ -4,6 +4,7 @@ import { trans } from '@/types/Translation';
 import { SanityDocument, groq } from 'next-sanity';
 
 const revalidate = 3600 * 24 * 7;
+const options = { next: { revalidate } };
 
 export const fetchAllSermons = () => {
   return client.fetch<SanityDocument<Sermon>[]>(
@@ -13,7 +14,7 @@ export const fetchAllSermons = () => {
       "image": image.asset->url
     } | order(publishedAt desc)[0...12]`,
     {},
-    { next: { revalidate } },
+    options,
   );
 };
 
@@ -25,7 +26,7 @@ export const fetchLatestSermons = () => {
       "image": image.asset->url
     } | order(publishedAt desc)[0...4]`,
     {},
-    { next: { revalidate } },
+    options,
   );
 };
 
@@ -35,7 +36,7 @@ export const fetchOnlyBooksUsedInSermons = async () => {
       book, "count": count(*[_type == "sermon" && book == ^.book])
     }`,
     {},
-    { next: { revalidate } },
+    options,
   );
 
   return docs.reduce((acc: SermonFilter[], curr, index) => {
