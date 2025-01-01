@@ -1,18 +1,15 @@
-import { ALL_SERMONS_QUERY } from '@/libs/queries';
-import { client } from '@/src/sanity/client';
-import { Sermon } from '@/types/Sermon';
-import { SanityDocument } from 'next-sanity';
+import { fetchAllSermons } from '@/libs/queries';
 
-const fetchAllSermons = () => {
-  return client.fetch<SanityDocument<Sermon>[]>(
-    ALL_SERMONS_QUERY,
-    {},
-    { next: { revalidate: 3600 } },
-  );
-};
+import SermonList from './sermon-list';
 
 export default async function SermonListSection() {
   const sermons = await fetchAllSermons();
 
-  return <section id='sermon-list'></section>;
+  return (
+    <section className='w-full py-8' id='sermon-list'>
+      <div className='flex flex-col items-start gap-y-10 px-4 py-12 lg:flex-row lg:gap-x-24 lg:gap-y-0'>
+        <SermonList sermons={sermons} />
+      </div>
+    </section>
+  );
 }

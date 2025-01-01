@@ -3,9 +3,13 @@ import TitleSmall from '@/components/Heading/TitleSmall';
 import { PostBody as Options } from '@/types/Post';
 import dayjs from 'dayjs';
 import { PortableText } from 'next-sanity';
-import Link from 'next/link';
 
-export default function PostBody({ title, text, href, publishedAt }: Options) {
+export default function PostBody({
+  title,
+  text,
+  publishedAt,
+  onClick,
+}: Options) {
   const formatted = dayjs(publishedAt).format('MMMM DD, YYYY');
   const date = formatted[0].toUpperCase() + formatted.slice(1);
 
@@ -13,9 +17,9 @@ export default function PostBody({ title, text, href, publishedAt }: Options) {
     <>
       <TitleSmall className='mt-6 text-primary-500' text={date} />
 
-      <Link href={href}>
+      <div className='w-fit cursor-pointer' onClick={onClick}>
         <TitleLarge className='my-3 underline' text={title} />
-      </Link>
+      </div>
 
       <PortableText value={text} />
     </>

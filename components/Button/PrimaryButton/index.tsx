@@ -1,6 +1,7 @@
-import { Layouts } from '@/components/Button/constants';
 import Icon from '@/components/Icon';
 import { Button as Options } from '@/types/Button';
+
+import { Layouts } from './constants';
 
 export default function PrimaryButton({
   text,

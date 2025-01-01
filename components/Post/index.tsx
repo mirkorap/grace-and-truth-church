@@ -8,26 +8,26 @@ export default function Post({
   author,
   title,
   text,
-  href,
   imgSrc,
   imgAlt,
   publishedAt,
+  onClick,
 }: Options) {
   return (
     <div>
       <PostImage
         author={author}
         category={category}
-        href={href}
         imgAlt={imgAlt}
         imgSrc={imgSrc}
+        onClick={onClick}
       />
 
       <PostBody
-        href={href}
         publishedAt={publishedAt}
         text={text}
         title={title}
+        onClick={onClick}
       />
     </div>
   );

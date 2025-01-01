@@ -1,19 +1,8 @@
 import DisplaySmall from '@/components/Heading/DisplaySmall';
 import Quote from '@/components/Heading/Quote';
-import Post from '@/components/Post';
-import Thumbnail from '@/components/Thumbnail';
-import { LATEST_SERMONS_QUERY } from '@/libs/queries';
-import { client } from '@/src/sanity/client';
-import { Sermon } from '@/types/Sermon';
-import { SanityDocument } from 'next-sanity';
+import { fetchLatestSermons } from '@/libs/queries';
 
-const fetchLatestSermons = () => {
-  return client.fetch<SanityDocument<Sermon>[]>(
-    LATEST_SERMONS_QUERY,
-    {},
-    { next: { revalidate: 3600 } },
-  );
-};
+import LastSermons from './last-sermons';
 
 export default async function LastSermonsSection() {
   const [lastSermon, ...latestSermons] = await fetchLatestSermons();
@@ -31,33 +20,7 @@ export default async function LastSermonsSection() {
         </div>
 
         <div className='mx-auto w-full max-w-[85rem] px-4'>
-          <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
-            <div className='lg:col-span-2'>
-              <Post
-                author={lastSermon.author}
-                category={lastSermon.book}
-                href='/'
-                imgAlt={lastSermon.title}
-                imgSrc={lastSermon.image}
-                publishedAt={lastSermon.publishedAt}
-                text={lastSermon.text}
-                title={lastSermon.title}
-              />
-            </div>
-
-            <div>
-              {latestSermons.map((item) => (
-                <Thumbnail
-                  key={item.slug}
-                  href='/'
-                  imgAlt={item.title}
-                  imgSrc={item.image}
-                  publishedAt={item.publishedAt}
-                  title={item.title}
-                />
-              ))}
-            </div>
-          </div>
+          <LastSermons featured={lastSermon} thumbnails={latestSermons} />
         </div>
       </div>
     </section>
