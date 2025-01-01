@@ -1,4 +1,4 @@
-import { Modal as ModalOpts } from '@/types/Modal';
+import { Modal as Options } from '@/types/Modal';
 import clsx from 'clsx';
 
 import ModalBody from './ModalBody';
@@ -11,7 +11,7 @@ export default function Modal({
   opened,
   children,
   onClose,
-}: ModalOpts) {
+}: Options) {
   return (
     <div className={clsx({ hidden: !opened })}>
       <div

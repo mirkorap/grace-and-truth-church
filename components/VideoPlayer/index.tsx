@@ -1,6 +1,6 @@
-import { VideoPlayer as VideoPlayerOpts } from '@/types/VideoPlayer';
+import { VideoPlayer as Options } from '@/types/VideoPlayer';
 
-export default function VideoPlayer({ title, videoId }: VideoPlayerOpts) {
+export default function VideoPlayer({ title, videoId }: Options) {
   return (
     <div className='relative aspect-video w-full'>
       <iframe

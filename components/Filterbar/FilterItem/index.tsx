@@ -1,6 +1,6 @@
 'use client';
 
-import { SermonFilterOpts } from '@/types/Sermon';
+import { SermonFilterOpts as Options } from '@/types/Sermon';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
@@ -35,7 +35,7 @@ const useFilterPathname = (value: string) => {
   return { pathname };
 };
 
-export default function FilterItem({ text, value, count }: SermonFilterOpts) {
+export default function FilterItem({ text, value, count }: Options) {
   return (
     <Link href={useFilterPathname(value)}>
       <div
