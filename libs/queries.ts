@@ -3,6 +3,8 @@ import { GroupedSermon, Sermon, SermonFilter } from '@/types/Sermon';
 import { trans } from '@/types/Translation';
 import { SanityDocument, groq } from 'next-sanity';
 
+const revalidate = 3600 * 24 * 7;
+
 export const fetchAllSermons = () => {
   return client.fetch<SanityDocument<Sermon>[]>(
     groq`*[_type == "sermon"] {
@@ -11,7 +13,7 @@ export const fetchAllSermons = () => {
       "image": image.asset->url
     } | order(publishedAt desc)[0...12]`,
     {},
-    { next: { revalidate: 3600 } },
+    { next: { revalidate } },
   );
 };
 
@@ -23,7 +25,7 @@ export const fetchLatestSermons = () => {
       "image": image.asset->url
     } | order(publishedAt desc)[0...4]`,
     {},
-    { next: { revalidate: 3600 } },
+    { next: { revalidate } },
   );
 };
 
@@ -33,7 +35,7 @@ export const fetchOnlyBooksUsedInSermons = async () => {
       book, "count": count(*[_type == "sermon" && book == ^.book])
     }`,
     {},
-    { next: { revalidate: 3600 } },
+    { next: { revalidate } },
   );
 
   return docs.reduce((acc: SermonFilter[], curr, index) => {
