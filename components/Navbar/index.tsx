@@ -8,7 +8,7 @@ import NavItem from './NavItem';
 import ToggleButton from './ToggleButton';
 import { NavItems } from './constants';
 
-export default function Navbar() {
+export default function NavBar() {
   const [opened, setOpened] = useState(false);
 
   function onToggle() {
