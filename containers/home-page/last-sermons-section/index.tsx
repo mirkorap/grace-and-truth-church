@@ -1,7 +1,5 @@
 import DisplaySmall from '@/components/Heading/DisplaySmall';
 import Quote from '@/components/Heading/Quote';
-import Post from '@/components/Post';
-import Thumbnail from '@/components/Thumbnail';
 import { fetchLatestSermons } from '@/libs/queries';
 
 import LastSermons from './last-sermons';
