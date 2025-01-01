@@ -11,6 +11,7 @@ import { useState } from 'react';
 
 export default function LastSermons({ featured, thumbnails }: Options) {
   const [selected, setSelected] = useState<Sermon>(empty);
+  const opened = !!selected.slug;
 
   function onClick(sermon: Sermon) {
     setSelected(sermon);
@@ -52,7 +53,7 @@ export default function LastSermons({ featured, thumbnails }: Options) {
 
       <Modal
         href={`https://www.youtube.com/watch?v=${selected.slug}`}
-        opened={!!selected.slug}
+        opened={opened}
         title={selected.title}
         onClose={onClose}
       >
