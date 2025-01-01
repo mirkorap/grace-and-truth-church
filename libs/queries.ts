@@ -33,7 +33,8 @@ export const fetchLatestSermons = () => {
 export const fetchOnlyBooksUsedInSermons = async () => {
   const docs = await client.fetch<SanityDocument<GroupedSermon>[]>(
     groq`*[_type == "sermon"] {
-      book, "count": count(*[_type == "sermon" && book == ^.book])
+      book,
+      "count": count(*[_type == "sermon" && book == ^.book])
     }`,
     {},
     options,
@@ -43,14 +44,14 @@ export const fetchOnlyBooksUsedInSermons = async () => {
     const found = acc.findIndex((o) => o.value === curr.book);
 
     if (found === -1) {
-      const book: SermonFilter = {
+      const filter: SermonFilter = {
         id: index + 1,
         text: trans[curr.book],
         value: curr.book,
         count: curr.count,
       };
 
-      return [...acc, book];
+      return [...acc, filter];
     }
 
     return acc;
