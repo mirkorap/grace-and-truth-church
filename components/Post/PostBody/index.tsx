@@ -17,7 +17,7 @@ export default function PostBody({
     <>
       <TitleSmall className='mt-6 text-primary-500' text={date} />
 
-      <div className='cursor-pointer' onClick={onClick}>
+      <div className='w-fit cursor-pointer' onClick={onClick}>
         <TitleLarge className='my-3 underline' text={title} />
       </div>
 
