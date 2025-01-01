@@ -12,13 +12,14 @@ export default function PostImage({
   onClick,
 }: Options) {
   return (
-    <div className='relative cursor-pointer' onClick={onClick}>
+    <div className='relative'>
       <Image
         alt={imgAlt}
-        className='w-full rounded-xl object-cover object-center lg:h-96'
+        className='w-full cursor-pointer rounded-xl object-cover object-center lg:h-96'
         height={1024}
         src={imgSrc}
         width={1024}
+        onClick={onClick}
       />
 
       <div className='absolute bottom-0 flex items-center bg-white p-3'>
