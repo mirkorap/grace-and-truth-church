@@ -1,6 +1,6 @@
 'use client';
 
-import { SermonFilterOpts as Options } from '@/types/Sermon';
+import { FilterOpts as Options } from '@/types/Filter';
 import clsx from 'clsx';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
@@ -41,9 +41,7 @@ export default function FilterItem({ text, value, count }: Options) {
       <div
         className={clsx(
           'flex w-full items-center justify-between rounded-md p-3 text-headline-700 transition-all hover:bg-primary-100 hover:text-headline-700',
-          {
-            'bg-primary-500 text-white': useIsSelected(value),
-          },
+          { 'bg-primary-500 text-white': useIsSelected(value) },
         )}
       >
         <span>{text}</span>

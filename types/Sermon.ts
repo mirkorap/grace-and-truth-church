@@ -1,9 +1,5 @@
 import { Block, emptyBlock } from './Sanity';
 
-export type SermonFilterOpts = Omit<SermonFilter, 'id'>;
-
-export type SermonFilters = { items: SermonFilter[] };
-
 export interface Sermon {
   title: string;
   slug: string;
@@ -17,13 +13,6 @@ export interface Sermon {
 
 export interface GroupedSermon {
   book: string;
-  count: number;
-}
-
-export interface SermonFilter {
-  id: number;
-  text: string;
-  value: string;
   count: number;
 }
 

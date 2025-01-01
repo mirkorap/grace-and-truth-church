@@ -1,5 +1,6 @@
 import { client } from '@/src/sanity/client';
-import { GroupedSermon, Sermon, SermonFilter } from '@/types/Sermon';
+import { Filter } from '@/types/Filter';
+import { GroupedSermon, Sermon } from '@/types/Sermon';
 import { trans } from '@/types/Translation';
 import { SanityDocument, groq } from 'next-sanity';
 
@@ -40,11 +41,11 @@ export const fetchOnlyBooksUsedInSermons = async () => {
     options,
   );
 
-  return docs.reduce((acc: SermonFilter[], curr, index) => {
+  return docs.reduce((acc: Filter[], curr, index) => {
     const found = acc.findIndex((o) => o.value === curr.book);
 
     if (found === -1) {
-      const filter: SermonFilter = {
+      const filter: Filter = {
         id: index + 1,
         text: trans[curr.book],
         value: curr.book,
