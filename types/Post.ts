@@ -1,5 +1,3 @@
-import { Route } from 'next';
-
 import { Block } from './Sanity';
 
 export type PostImage = Omit<Post, 'id' | 'title' | 'text' | 'publishedAt'>;

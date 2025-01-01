@@ -22,3 +22,10 @@ export interface Block extends BlockStyle, BlockList {
     href?: string;
   }>;
 }
+
+export const nullBlock: Block = {
+  _type: 'block',
+  _key: '',
+  style: 'blockquote',
+  children: [],
+};

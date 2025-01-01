@@ -4,6 +4,8 @@ import Post from '@/components/Post';
 import Thumbnail from '@/components/Thumbnail';
 import { fetchLatestSermons } from '@/libs/queries';
 
+import LastSermons from './last-sermons';
+
 export default async function LastSermonsSection() {
   const [lastSermon, ...latestSermons] = await fetchLatestSermons();
 
@@ -20,33 +22,7 @@ export default async function LastSermonsSection() {
         </div>
 
         <div className='mx-auto w-full max-w-[85rem] px-4'>
-          <div className='grid grid-cols-1 gap-8 lg:grid-cols-3'>
-            <div className='lg:col-span-2'>
-              <Post
-                author={lastSermon.author}
-                category={lastSermon.book}
-                href='/'
-                imgAlt={lastSermon.title}
-                imgSrc={lastSermon.image}
-                publishedAt={lastSermon.publishedAt}
-                text={lastSermon.text}
-                title={lastSermon.title}
-              />
-            </div>
-
-            <div>
-              {latestSermons.map((sermon) => (
-                <Thumbnail
-                  key={sermon.slug}
-                  href='/'
-                  imgAlt={sermon.title}
-                  imgSrc={sermon.image}
-                  publishedAt={sermon.publishedAt}
-                  title={sermon.title}
-                />
-              ))}
-            </div>
-          </div>
+          <LastSermons featured={lastSermon} others={latestSermons} />
         </div>
       </div>
     </section>

@@ -12,7 +12,7 @@ export default function PostImage({
   onClick,
 }: Options) {
   return (
-    <div className='relative' onClick={onClick}>
+    <div className='relative cursor-pointer' onClick={onClick}>
       <Image
         alt={imgAlt}
         className='w-full rounded-xl object-cover object-center lg:h-96'
