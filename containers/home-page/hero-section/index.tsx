@@ -6,7 +6,7 @@ import Image from 'next/image';
 export default function HeroSection() {
   return (
     <section className='w-full pt-44 xs:pb-8 md:pb-44 lg:pb-64' id='hero'>
-      <div className='mx-auto flex w-full max-w-[85rem] flex-col items-center justify-between px-4 lg:flex-row'>
+      <div className='mx-auto flex w-full max-w-[40rem] flex-col items-center justify-between px-4 lg:max-w-[85rem] lg:flex-row'>
         <div className='mb-10 lg:w-1/2'>
           <div className='flex flex-col items-center lg:items-start'>
             <HeadlineLarge

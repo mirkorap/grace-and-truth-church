@@ -6,7 +6,7 @@ import DoctrinalItem from './doctrinal-item';
 export default function DoctrinalLinesSection() {
   return (
     <section className='mb-32 w-full' id='doctrinal-lines'>
-      <div className='mx-auto flex max-w-[85rem] flex-col items-center px-6'>
+      <div className='flex flex-col items-center px-6'>
         <HeadlineMedium
           className='mb-20 text-primary-500'
           text='Lineamenti Dottrinali'

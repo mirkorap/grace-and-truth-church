@@ -27,7 +27,7 @@ export default function SermonList({ sermons }: Options) {
   }
 
   return (
-    <div className='order-last grid grid-cols-1 gap-8 lg:order-first lg:grid-cols-2'>
+    <div className='order-last grid w-full grid-cols-1 gap-8 lg:order-first lg:grid-cols-2'>
       {sermons.map((item) => (
         <Post
           key={item.slug}
