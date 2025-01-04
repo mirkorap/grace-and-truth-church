@@ -7,6 +7,7 @@ import Image from 'next/image';
 export default function PostImage({
   category,
   author,
+  verses,
   imgSrc,
   imgAlt,
   onClick,
@@ -24,7 +25,7 @@ export default function PostImage({
 
       <div className='absolute bottom-0 flex items-center bg-white p-3'>
         <div className='mx-4'>
-          <TitleSmall text={trans[category]} />
+          <TitleSmall text={`${trans[category]} ${verses}`} />
           <BodyMedium text={author} />
         </div>
       </div>
