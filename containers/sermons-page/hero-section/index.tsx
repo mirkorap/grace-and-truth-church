@@ -4,11 +4,11 @@ import Quote from '@/components/Heading/Quote';
 
 export default function HeroSection() {
   return (
-    <section className='w-full px-4 pt-44' id='hero'>
-      <div className='mx-auto flex max-w-[85rem] flex-col items-center gap-y-5 xl:px-8'>
+    <section className='w-full pt-44' id='hero'>
+      <div className='flex flex-col items-center gap-y-5'>
         <HeadlineLarge className='text-center' text='Archivio sermoni' />
         <Quote
-          className='max-w-[40rem] text-center !text-base md:!text-xl'
+          className='text-center !text-base md:!text-xl'
           text='Questa è la vita eterna: che conoscano te, il solo vero Dio, e colui che tu hai mandato, Gesù Cristo.'
           verse='Gv. 17:3'
         />
