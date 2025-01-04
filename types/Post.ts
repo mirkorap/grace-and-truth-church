@@ -10,6 +10,7 @@ export interface Post {
   id: number;
   category: string;
   author: string;
+  verses: string;
   title: string;
   text: Block;
   imgSrc: string;

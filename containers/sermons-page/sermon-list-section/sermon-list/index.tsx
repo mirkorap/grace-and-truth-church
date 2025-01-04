@@ -38,6 +38,7 @@ export default function SermonList({ sermons }: Options) {
           publishedAt={item.publishedAt}
           text={item.text}
           title={item.title}
+          verses={item.verses}
           onClick={() => onClick(item)}
         />
       ))}
