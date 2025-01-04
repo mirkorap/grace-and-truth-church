@@ -6,6 +6,7 @@ import PostImage from './PostImage';
 export default function Post({
   category,
   author,
+  verses,
   title,
   text,
   imgSrc,
@@ -20,6 +21,7 @@ export default function Post({
         category={category}
         imgAlt={imgAlt}
         imgSrc={imgSrc}
+        verses={verses}
         onClick={onClick}
       />
 

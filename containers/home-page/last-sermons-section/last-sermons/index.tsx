@@ -40,6 +40,7 @@ export default function LastSermons({ featured, thumbnails }: Options) {
             publishedAt={featured.publishedAt}
             text={featured.text}
             title={featured.title}
+            verses={featured.verses}
             onClick={() => onClick(featured)}
           />
         </div>
