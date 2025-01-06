@@ -15,7 +15,7 @@ export async function POST(req: NextRequest) {
     };
 
     const { data, error } = await new Resend(key).emails.send({
-      from: `${formDataEntries.name} <info@chiesagraziaeverita.com>`,
+      from: `${formDataEntries.name} <info@chiesagraziaeverita.it>`,
       to: ['chiesagraziaeverita@gmail.com'],
       subject: formDataEntries.subject,
       react: EmailTemplate(formDataEntries),
