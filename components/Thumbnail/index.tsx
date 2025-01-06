@@ -2,6 +2,7 @@ import TitleMedium from '@/components/Heading/TitleMedium';
 import TitleSmall from '@/components/Heading/TitleSmall';
 import { ThumbnailOpts as Options } from '@/types/Thumbnail';
 import dayjs from 'dayjs';
+import 'dayjs/locale/it';
 import Image from 'next/image';
 
 export default function Thumbnail({
@@ -11,7 +12,7 @@ export default function Thumbnail({
   publishedAt,
   onClick,
 }: Options) {
-  const formatted = dayjs(publishedAt).format('MMMM DD, YYYY');
+  const formatted = dayjs(publishedAt).locale('it').format('MMMM DD, YYYY');
   const date = formatted[0].toUpperCase() + formatted.slice(1);
 
   return (
