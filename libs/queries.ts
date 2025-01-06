@@ -4,7 +4,7 @@ import { GroupedSermon, Sermon } from '@/types/Sermon';
 import { trans } from '@/types/Translation';
 import { SanityDocument, groq } from 'next-sanity';
 
-const revalidate = 3600 * 24 * 7;
+const revalidate = 3600;
 const options = { next: { revalidate } };
 
 export const fetchAllSermons = () => {
