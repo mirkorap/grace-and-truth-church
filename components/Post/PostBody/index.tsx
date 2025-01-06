@@ -2,6 +2,7 @@ import TitleLarge from '@/components/Heading/TitleLarge';
 import TitleSmall from '@/components/Heading/TitleSmall';
 import { PostBody as Options } from '@/types/Post';
 import dayjs from 'dayjs';
+import 'dayjs/locale/it';
 import { PortableText } from 'next-sanity';
 
 export default function PostBody({
@@ -10,7 +11,7 @@ export default function PostBody({
   publishedAt,
   onClick,
 }: Options) {
-  const formatted = dayjs(publishedAt).format('MMMM DD, YYYY');
+  const formatted = dayjs(publishedAt).locale('it').format('MMMM DD, YYYY');
   const date = formatted[0].toUpperCase() + formatted.slice(1);
 
   return (
