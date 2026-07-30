@@ -7,16 +7,25 @@ import { SanityDocument, groq } from 'next-sanity';
 const revalidate = 3600;
 const options = { next: { revalidate } };
 
-export const fetchAllSermons = () => {
+export const SERMONS_PER_PAGE = 10;
+
+export const fetchSermonsPage = (page: number) => {
+  const start = (page - 1) * SERMONS_PER_PAGE;
+  const end = start + SERMONS_PER_PAGE;
+
   return client.fetch<SanityDocument<Sermon>[]>(
-    groq`*[_type == "sermon"] {
+    groq`*[_type == "sermon"] | order(publishedAt desc) [$start...$end] {
       title, publishedAt, author, book, verses, text,
       "slug": slug.current,
       "image": image.asset->url
-    } | order(publishedAt desc)[0...12]`,
-    {},
+    }`,
+    { start, end },
     options,
   );
+};
+
+export const fetchSermonsCount = () => {
+  return client.fetch<number>(groq`count(*[_type == "sermon"])`, {}, options);
 };
 
 export const fetchLatestSermons = () => {
@@ -42,6 +51,8 @@ export const fetchOnlyBooksUsedInSermons = async () => {
   );
 
   return docs.reduce((acc: Filter[], curr, index) => {
+    if (!curr.book || !trans[curr.book]) return acc;
+
     const found = acc.findIndex((o) => o.value === curr.book);
 
     if (found === -1) {

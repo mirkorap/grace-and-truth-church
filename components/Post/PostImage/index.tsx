@@ -12,6 +12,8 @@ export default function PostImage({
   imgAlt,
   onClick,
 }: Options) {
+  const reference = [trans[category], verses].filter(Boolean).join(' ');
+
   return (
     <div className='relative'>
       <Image
@@ -23,12 +25,14 @@ export default function PostImage({
         onClick={onClick}
       />
 
-      <div className='absolute bottom-0 flex items-center bg-white p-3'>
-        <div className='mx-4'>
-          <TitleSmall text={`${trans[category]} ${verses}`} />
-          <BodyMedium text={author} />
+      {reference || author ? (
+        <div className='absolute bottom-0 flex items-center bg-white p-3'>
+          <div className='mx-4'>
+            {reference ? <TitleSmall text={reference} /> : null}
+            {author ? <BodyMedium text={author} /> : null}
+          </div>
         </div>
-      </div>
+      ) : null}
     </div>
   );
 }
