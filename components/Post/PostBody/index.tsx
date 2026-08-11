@@ -22,7 +22,7 @@ export default function PostBody({
         <TitleLarge className='my-3 underline' text={title} />
       </div>
 
-      <PortableText value={text} />
+      {text ? <PortableText value={text} /> : null}
     </>
   );
 }
