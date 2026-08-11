@@ -1,10 +1,31 @@
-export type FilterOpts = Omit<Filter, 'id'>;
+export interface BibleBook {
+  book: string;
+  name: string;
+  icon: string;
+}
 
-export type FilterBar = { items: Filter[] };
-
-export interface Filter {
-  id: number;
-  text: string;
-  value: string;
+export interface BookFilter extends BibleBook {
   count: number;
 }
+
+export interface SermonFilters {
+  book: string;
+  title: string;
+  from: string;
+  to: string;
+}
+
+export type BookCounts = { [book: string]: number };
+
+export type FilterBar = { books: BookFilter[] };
+
+export type BookSlider = { books: BookFilter[] };
+
+export type BookItem = BookFilter;
+
+export const emptyFilters: SermonFilters = {
+  book: '',
+  title: '',
+  from: '',
+  to: '',
+};
