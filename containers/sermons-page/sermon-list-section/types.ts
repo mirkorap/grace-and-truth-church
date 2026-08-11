@@ -1,3 +1,4 @@
+import { SermonFilters } from '@/types/Filter';
 import { Sermon } from '@/types/Sermon';
 
 export interface SermonList {
@@ -6,4 +7,5 @@ export interface SermonList {
 
 export interface SermonListSection {
   page: number;
+  filters: SermonFilters;
 }

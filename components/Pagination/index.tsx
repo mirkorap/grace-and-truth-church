@@ -7,10 +7,10 @@ const enabled =
   'border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white';
 const disabled = 'pointer-events-none border-gray-200 text-gray-300';
 
-export default function Pagination({ page, totalPages }: Options) {
+export default function Pagination({ page, totalPages, params }: Options) {
   const href = (target: number) => ({
     pathname: '/sermons' as const,
-    query: { page: target },
+    query: { ...params, page: target },
     hash: 'sermon-list',
   });
 

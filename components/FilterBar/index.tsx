@@ -1,20 +1,14 @@
 import { FilterBar as Options } from '@/types/Filter';
 
-import FilterItem from './FilterItem';
+import BookSlider from './BookSlider';
+import SearchFilters from './SearchFilters';
 
-export default function FilterBar({ items }: Options) {
+export default function FilterBar({ books }: Options) {
   return (
-    <div className='relative flex flex-col rounded-lg border border-slate-200 bg-white shadow-sm'>
-      <nav className='flex min-w-60 flex-col gap-1 p-1.5'>
-        {items.map((item) => (
-          <FilterItem
-            key={item.id}
-            count={item.count}
-            text={item.text}
-            value={item.value}
-          />
-        ))}
-      </nav>
+    <div className='flex w-full flex-col gap-y-5 rounded-lg border border-slate-200 bg-white p-4 shadow-sm sm:p-6'>
+      <BookSlider books={books} />
+      <hr className='border-slate-200' />
+      <SearchFilters />
     </div>
   );
 }
