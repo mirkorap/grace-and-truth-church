@@ -1,5 +1,6 @@
 import { client } from '@/src/sanity/client';
-import { BookCounts, SermonFilters } from '@/types/Filter';
+import { Event } from '@/types/Event';
+import { BookCounts, SermonFilters, YearCounts } from '@/types/Filter';
 import { Sermon } from '@/types/Sermon';
 import { SanityDocument, groq } from 'next-sanity';
 
@@ -66,5 +67,50 @@ export const fetchSermonsCountByBook = async (): Promise<BookCounts> => {
 
   return books.reduce((acc: BookCounts, book) => {
     return { ...acc, [book]: (acc[book] ?? 0) + 1 };
+  }, {});
+};
+
+const eventFields = groq`
+  title, startDate, endDate, description, program, speaker, venue, phone,
+  "slug": slug.current,
+  "image": image.asset->url
+`;
+
+export const fetchEventsByYear = (year: number) => {
+  return client.fetch<SanityDocument<Event>[]>(
+    groq`*[_type == "event" && startDate >= $from && startDate <= $to]
+      | order(startDate desc) { ${eventFields} }`,
+    { from: `${year}-01-01`, to: `${year}-12-31` },
+    options,
+  );
+};
+
+export const fetchEventBySlug = (slug: string) => {
+  return client.fetch<SanityDocument<Event> | null>(
+    groq`*[_type == "event" && slug.current == $slug][0] { ${eventFields} }`,
+    { slug },
+    options,
+  );
+};
+
+export const fetchEventSlugs = () => {
+  return client.fetch<string[]>(
+    groq`*[_type == "event" && defined(slug.current)].slug.current`,
+    {},
+    options,
+  );
+};
+
+export const fetchEventCountsByYear = async (): Promise<YearCounts> => {
+  const dates = await client.fetch<string[]>(
+    groq`*[_type == "event" && defined(startDate)].startDate`,
+    {},
+    options,
+  );
+
+  return dates.reduce((acc: YearCounts, date) => {
+    const year = date.slice(0, 4);
+
+    return { ...acc, [year]: (acc[year] ?? 0) + 1 };
   }, {});
 };

@@ -1,7 +1,17 @@
+import { fetchEventSlugs } from '@/libs/queries';
 import { siteUrl } from '@/src/env';
 import type { MetadataRoute } from 'next';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const slugs = await fetchEventSlugs();
+
+  const events: MetadataRoute.Sitemap = slugs.map((slug) => ({
+    url: `${siteUrl}/news/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'yearly',
+    priority: 0.6,
+  }));
+
   return [
     {
       url: siteUrl,
@@ -39,5 +49,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.5,
     },
+    ...events,
   ];
 }
