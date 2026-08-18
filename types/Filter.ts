@@ -29,3 +29,20 @@ export const emptyFilters: SermonFilters = {
   from: '',
   to: '',
 };
+
+export interface EventFilters {
+  year: string;
+}
+
+export interface YearFilter {
+  year: number;
+  count: number;
+}
+
+export type YearCounts = { [year: string]: number };
+
+export type EventFilterBar = { years: YearFilter[]; selected: number };
+
+export type YearSlider = EventFilterBar;
+
+export type YearItem = YearFilter & { selected: boolean };
