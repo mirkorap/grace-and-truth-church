@@ -55,3 +55,24 @@ export function useSermonFilters() {
 
   return { filters, apply, clear, isActive };
 }
+
+export function useEventFilters() {
+  const router = useRouter();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  const select = useCallback(
+    (year: number) => {
+      const params = new URLSearchParams(searchParams.toString());
+
+      params.set('year', String(year));
+
+      router.replace(`${pathname}?${params.toString()}` as Route, {
+        scroll: false,
+      });
+    },
+    [pathname, router, searchParams],
+  );
+
+  return { select };
+}

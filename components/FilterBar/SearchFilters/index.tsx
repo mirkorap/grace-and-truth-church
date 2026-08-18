@@ -27,7 +27,7 @@ export default function SearchFilters() {
 
   return (
     <div className='flex w-full flex-col gap-4 md:flex-row md:items-end'>
-      <div className='flex w-full flex-col gap-y-2 md:flex-1'>
+      <div className='flex w-full flex-col gap-y-2 lg:flex-1'>
         <label className={label} htmlFor='sermon-title'>
           Titolo
         </label>
@@ -43,7 +43,7 @@ export default function SearchFilters() {
         />
       </div>
 
-      <div className='flex w-full flex-col gap-y-2 md:w-44'>
+      <div className='flex w-full flex-col gap-y-2 lg:w-44'>
         <label className={label} htmlFor='sermon-from'>
           Dal
         </label>
@@ -59,7 +59,7 @@ export default function SearchFilters() {
         />
       </div>
 
-      <div className='flex w-full flex-col gap-y-2 md:w-44'>
+      <div className='flex w-full flex-col gap-y-2 lg:w-44'>
         <label className={label} htmlFor='sermon-to'>
           Al
         </label>
