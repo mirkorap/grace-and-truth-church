@@ -71,7 +71,7 @@ export const fetchSermonsCountByBook = async (): Promise<BookCounts> => {
 };
 
 const eventFields = groq`
-  title, startDate, endDate, description, program, speaker, venue, phone,
+  title, startDate, endDate, shortDescription, description, program, speaker, venue, phone,
   "slug": slug.current,
   "image": image.asset->url
 `;
