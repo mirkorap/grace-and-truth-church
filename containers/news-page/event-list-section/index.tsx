@@ -15,9 +15,9 @@ export default async function EventListSection({ year }: Options) {
           {events.map((item) => (
             <EventCard
               key={item.slug}
-              description={item.description}
               endDate={item.endDate}
               image={item.image}
+              shortDescription={item.shortDescription}
               slug={item.slug}
               startDate={item.startDate}
               title={item.title}

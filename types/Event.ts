@@ -25,6 +25,7 @@ export interface Event {
   startDate: string;
   endDate: string;
   image: string;
+  shortDescription: string;
   description: Block[];
   program: ProgramSlot[];
   speaker: string;
@@ -34,7 +35,7 @@ export interface Event {
 
 export type EventCard = Pick<
   Event,
-  'title' | 'slug' | 'startDate' | 'endDate' | 'image' | 'description' | 'venue'
+  'title' | 'slug' | 'startDate' | 'endDate' | 'image' | 'shortDescription' | 'venue'
 >;
 
 export type EventProgram = Pick<Event, 'program' | 'startDate' | 'endDate'>;
@@ -51,6 +52,7 @@ export const emptyEvent: Event = {
   startDate: '',
   endDate: '',
   image: '',
+  shortDescription: '',
   description: [],
   program: [],
   speaker: '',
