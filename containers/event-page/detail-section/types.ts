@@ -1,6 +1,6 @@
 import { Event } from '@/types/Event';
 
-export type DetailSection = Omit<Event, 'slug'>;
+export type DetailSection = Omit<Event, 'slug' | 'shortDescription'>;
 
 export type Program = Pick<Event, 'program'>;
 

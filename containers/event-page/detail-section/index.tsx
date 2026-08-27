@@ -1,6 +1,6 @@
 import TitleMedium from '@/components/Heading/TitleMedium';
+import RichText from '@/components/RichText';
 import { POSTER_HEIGHT, POSTER_WIDTH } from '@/constants/events';
-import { PortableText } from 'next-sanity';
 import Image from 'next/image';
 
 import Info from './info';
@@ -39,9 +39,7 @@ export default function DetailSection({
           <div className='flex flex-col gap-y-4'>
             <TitleMedium text="L'evento" />
 
-            <div className='flex flex-col gap-y-3 font-nunito text-sm font-medium text-headline-700 lg:text-base'>
-              <PortableText value={description} />
-            </div>
+            <RichText value={description} />
           </div>
 
           <Program program={program} />

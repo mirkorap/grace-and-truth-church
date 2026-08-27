@@ -3,7 +3,6 @@ import TitleLarge from '@/components/Heading/TitleLarge';
 import TitleSmall from '@/components/Heading/TitleSmall';
 import Icon from '@/components/Icon';
 import { formatDateRange, isUpcoming } from '@/libs/dates';
-import { toPlainText } from '@/libs/portable-text';
 import { EventCard as Options } from '@/types/Event';
 import { Route } from 'next';
 import Image from 'next/image';
@@ -15,12 +14,11 @@ export default function EventCard({
   startDate,
   endDate,
   image,
-  description,
+  shortDescription,
   venue,
 }: Options) {
   const dates = formatDateRange(startDate, endDate);
   const upcoming = isUpcoming(startDate, endDate);
-  const excerpt = toPlainText(description);
 
   return (
     <Link
@@ -47,7 +45,7 @@ export default function EventCard({
         <TitleSmall className='text-primary-500' text={dates} />
         <TitleLarge className='group-hover:underline' text={title} />
 
-        {excerpt ? <BodyLarge className='line-clamp-3' text={excerpt} /> : null}
+        {shortDescription ? <BodyLarge className='line-clamp-3' text={shortDescription} /> : null}
 
         {venue?.city ? (
           <span className='mt-auto flex items-center gap-x-2 pt-3 font-nunito text-sm text-headline-500'>
