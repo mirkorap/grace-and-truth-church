@@ -17,6 +17,9 @@
  *  node scripts/sync-youtube-sermons.mjs              sync new videos
  *  Flags:
  *   --limit=N          only process the N most recent videos
+ *   --select           interactively pick which sermons to sync from a
+ *                      numbered list (e.g. "1,3,5-8" or "all")
+ *   --ids=ID1,ID2      only sync the given YouTube video IDs (non-interactive)
  *   --force            overwrite already-synced sermons (createOrReplace)
  *   --reset            sync from zero: DELETE every sermon document in Sanity
  *                      (manual entries included), then rebuild all from YouTube
@@ -28,6 +31,7 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
+import { createInterface } from 'node:readline/promises';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -54,7 +58,12 @@ const FORCE = flag('force');
 const NO_IMAGE = flag('no-image');
 const INCLUDE_SHORTS = flag('include-shorts');
 const RESET = flag('reset');
+const SELECT = flag('select');
 const LIMIT = Number(opt('limit') ?? Infinity);
+const IDS = opt('ids')
+  ?.split(',')
+  .map((s) => s.trim())
+  .filter(Boolean);
 
 const YT_KEY = process.env.YOUTUBE_API_KEY;
 const PROJECT_ID = process.env.SANITY_API_PROJECT_ID;
@@ -352,6 +361,58 @@ async function mutate(mutations) {
     fail(`Sanity mutation failed: ${res.status} ${await res.text()}`);
 }
 
+// ——— sermon selection (--select / --ids) ———
+function sermonLabel(parsed) {
+  return `${parsed.publishedAt.slice(0, 10)}  ${parsed.title}${parsed.book ? `  [${parsed.book} ${parsed.verses}]` : ''}`;
+}
+
+function parseSelection(input, max) {
+  const picked = new Set();
+  for (const part of input.split(',')) {
+    const p = part.trim();
+    if (!p) continue;
+    const m = p.match(/^(\d+)(?:\s*-\s*(\d+))?$/);
+    if (!m) return null;
+    const from = Number(m[1]);
+    const to = Number(m[2] ?? m[1]);
+    if (from < 1 || to > max || from > to) return null;
+    for (let i = from; i <= to; i += 1) picked.add(i - 1);
+  }
+  return picked.size > 0 ? picked : null;
+}
+
+async function promptSelection(list) {
+  if (!process.stdin.isTTY)
+    fail('--select needs an interactive terminal (use --ids=ID1,ID2 instead).');
+
+  console.log('\nSermons available to sync:\n');
+  list.forEach((video, i) => {
+    console.log(
+      `  ${String(i + 1).padStart(3)}. ${sermonLabel(parseVideo(video))}`,
+    );
+  });
+
+  const rl = createInterface({ input: process.stdin, output: process.stdout });
+  try {
+    for (;;) {
+      const answer = (
+        await rl.question(
+          '\nWhich sermons? (e.g. "1,3,5-8", "all", empty to cancel) › ',
+        )
+      ).trim();
+      if (!answer) return [];
+      if (/^all$/i.test(answer)) return list;
+      const picked = parseSelection(answer, list.length);
+      if (picked) return list.filter((_, i) => picked.has(i));
+      console.log(
+        `Invalid selection — use numbers or ranges between 1 and ${list.length}, e.g. "1,3,5-8".`,
+      );
+    }
+  } finally {
+    rl.close();
+  }
+}
+
 // ——— main ———
 const videos = (YT_KEY ? await fetchFromApi() : await fetchFromRss()).slice(
   0,
@@ -380,10 +441,29 @@ if (candidates.length === 0) {
   process.exit(0);
 }
 
+let selected = candidates;
+if (IDS) {
+  selected = candidates.filter((v) => IDS.includes(v.videoId));
+  const found = new Set(selected.map((v) => v.videoId));
+  for (const id of IDS.filter((id) => !found.has(id)))
+    console.warn(`⚠ --ids: "${id}" not found among the syncable videos.`);
+} else if (SELECT) {
+  selected = await promptSelection(candidates);
+}
+
+if (selected.length === 0) {
+  console.log('Nothing selected — exiting without changes.');
+  process.exit(0);
+}
+if (selected.length < candidates.length)
+  console.log(
+    `Selected ${selected.length} of ${candidates.length} syncable sermon(s).`,
+  );
+
 let created = 0;
-for (const video of candidates) {
+for (const video of selected) {
   const parsed = parseVideo(video);
-  const label = `${parsed.publishedAt.slice(0, 10)}  ${parsed.title}${parsed.book ? `  [${parsed.book} ${parsed.verses}]` : ''}`;
+  const label = sermonLabel(parsed);
 
   if (DRY_RUN) {
     console.log(`would create: ${label}  (author: ${parsed.author || '—'})`);
@@ -417,6 +497,6 @@ for (const video of candidates) {
 
 console.log(
   DRY_RUN
-    ? `\n${candidates.length} sermon(s) would be created. Run without --dry-run to sync.`
+    ? `\n${selected.length} sermon(s) would be created. Run without --dry-run to sync.`
     : `\nDone — ${created} sermon(s) synced to Sanity.`,
 );

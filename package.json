@@ -11,7 +11,8 @@
     "format": "prettier --check --ignore-path .gitignore .",
     "format:fix": "prettier --write --ignore-path .gitignore .",
     "sync:sermons": "node scripts/sync-youtube-sermons.mjs",
-    "sync:sermons:preview": "node scripts/sync-youtube-sermons.mjs --dry-run"
+    "sync:sermons:preview": "node scripts/sync-youtube-sermons.mjs --dry-run",
+    "sync:sermons:select": "node scripts/sync-youtube-sermons.mjs --select"
   },
   "dependencies": {
     "@portabletext/react": "^3.2.0",
