@@ -45,7 +45,9 @@ export default function EventCard({
         <TitleSmall className='text-primary-500' text={dates} />
         <TitleLarge className='group-hover:underline' text={title} />
 
-        {shortDescription ? <BodyLarge className='line-clamp-3' text={shortDescription} /> : null}
+        {shortDescription ? (
+          <BodyLarge className='line-clamp-3' text={shortDescription} />
+        ) : null}
 
         {venue?.city ? (
           <span className='mt-auto flex items-center gap-x-2 pt-3 font-nunito text-sm text-headline-500'>

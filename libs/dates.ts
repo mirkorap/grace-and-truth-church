@@ -3,6 +3,8 @@ import 'dayjs/locale/it';
 
 const it = (date: string) => dayjs(date).locale('it');
 
+export const today = () => dayjs().format('YYYY-MM-DD');
+
 export const yearOf = (date: string) => Number(date.slice(0, 4));
 
 export const formatDate = (date: string) => it(date).format('D MMMM YYYY');

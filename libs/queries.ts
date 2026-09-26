@@ -1,3 +1,4 @@
+import { today } from '@/libs/dates';
 import { client } from '@/src/sanity/client';
 import { Event } from '@/types/Event';
 import { BookCounts, SermonFilters, YearCounts } from '@/types/Filter';
@@ -81,6 +82,15 @@ export const fetchEventsByYear = (year: number) => {
     groq`*[_type == "event" && startDate >= $from && startDate <= $to]
       | order(startDate desc) { ${eventFields} }`,
     { from: `${year}-01-01`, to: `${year}-12-31` },
+    options,
+  );
+};
+
+export const fetchNextEvent = () => {
+  return client.fetch<SanityDocument<Event> | null>(
+    groq`*[_type == "event" && (endDate >= $today || startDate >= $today)]
+      | order(startDate asc)[0] { ${eventFields} }`,
+    { today: today() },
     options,
   );
 };
