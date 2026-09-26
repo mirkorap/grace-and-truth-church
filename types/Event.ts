@@ -35,7 +35,13 @@ export interface Event {
 
 export type EventCard = Pick<
   Event,
-  'title' | 'slug' | 'startDate' | 'endDate' | 'image' | 'shortDescription' | 'venue'
+  | 'title'
+  | 'slug'
+  | 'startDate'
+  | 'endDate'
+  | 'image'
+  | 'shortDescription'
+  | 'venue'
 >;
 
 export type EventProgram = Pick<Event, 'program' | 'startDate' | 'endDate'>;
