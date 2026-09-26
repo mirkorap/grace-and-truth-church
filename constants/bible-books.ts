@@ -82,3 +82,7 @@ export const BIBLE_BOOKS: BibleBook[] = [
   { book: 'jude', name: 'Giuda', icon: 'jude.svg' },
   { book: 'revelation', name: 'Apocalisse', icon: 'revelation.svg' },
 ];
+
+export const BOOK_ICONS: Record<string, string> = Object.fromEntries(
+  BIBLE_BOOKS.map(({ book, icon }) => [book, icon]),
+);
