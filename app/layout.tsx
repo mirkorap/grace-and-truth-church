@@ -25,7 +25,8 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: 'Chiesa Grazia e Verità',
-  description: 'Sito ufficiale della Chiesa Cristiana Evangelica "Grazia e Verità"',
+  description:
+    'Sito ufficiale della Chiesa Cristiana Evangelica "Grazia e Verità"',
 };
 
 export default function RootLayout({

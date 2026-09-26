@@ -7,9 +7,6 @@ import { fetchNextEvent } from '@/libs/queries';
 import { Route } from 'next';
 import Image from 'next/image';
 
-const label =
-  'font-nunito text-xs font-semibold uppercase tracking-wide text-secondary-300';
-
 export default async function NextEventSection() {
   const event = await fetchNextEvent();
   if (!event) return null;
@@ -51,14 +48,18 @@ export default async function NextEventSection() {
             <div className='mt-2 flex flex-col items-center gap-6 border-t border-white/20 pt-5 text-center sm:flex-row sm:gap-10 lg:items-start lg:text-start'>
               {event.speaker ? (
                 <div className='flex flex-col gap-y-1'>
-                  <span className={label}>Relatore</span>
+                  <span className='font-nunito text-xs font-semibold uppercase tracking-wide text-secondary-300'>
+                    Relatore
+                  </span>
                   <BodyLarge className='text-white' text={event.speaker} />
                 </div>
               ) : null}
 
               {place ? (
                 <div className='flex flex-col gap-y-1'>
-                  <span className={label}>Dove</span>
+                  <span className='font-nunito text-xs font-semibold uppercase tracking-wide text-secondary-300'>
+                    Dove
+                  </span>
                   <BodyLarge className='text-white' text={place} />
                 </div>
               ) : null}
