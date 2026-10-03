@@ -9,8 +9,8 @@ export default function HeroSection() {
         <HeadlineLarge className='text-center' text='Registrazioni' />
         <Quote
           className='text-center !text-base md:!text-xl'
-          text='Ogni Scrittura è ispirata da Dio e utile a insegnare, a riprendere, a correggere, a educare alla giustizia.'
-          verse='2 Tm. 3:16'
+          text="Ogni Scrittura è ispirata da Dio e utile a insegnare, a riprendere, a correggere, a educare alla giustizia, perché l'uomo di Dio sia completo e ben preparato per ogni opera buona."
+            verse='2Ti. 3:16-17'
         />
         <BodyLarge
           className='mt-10 text-justify !text-base md:!text-xl'
