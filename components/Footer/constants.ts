@@ -23,11 +23,16 @@ export const NavItems: NavItem[] = [
   },
   {
     id: 5,
+    href: '/recordings',
+    text: 'Registrazioni',
+  },
+  {
+    id: 6,
     href: '/news',
     text: 'Ultime novità',
   },
   {
-    id: 6,
+    id: 7,
     href: '/contact-us',
     text: 'Contattaci',
   },

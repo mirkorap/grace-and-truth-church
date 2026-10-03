@@ -1,6 +1,12 @@
 import { Input as Options } from '@/types/Form';
 
-export default function Input({ id, name, label, placeholder }: Options) {
+export default function Input({
+  id,
+  name,
+  label,
+  placeholder,
+  type = 'text',
+}: Options) {
   return (
     <div className='flex w-full flex-col gap-y-2'>
       <label className='font-semibold' htmlFor={id}>
@@ -12,7 +18,7 @@ export default function Input({ id, name, label, placeholder }: Options) {
         id={id}
         name={name}
         placeholder={placeholder}
-        type='text'
+        type={type}
       ></input>
     </div>
   );

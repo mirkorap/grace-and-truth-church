@@ -36,3 +36,14 @@ export const isUpcoming = (start: string, end: string) => {
     .endOf('day')
     .isAfter(dayjs());
 };
+
+export const formatDuration = (seconds: number) => {
+  if (!seconds) return '';
+
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.round((seconds % 3600) / 60);
+
+  if (!hours) return `${minutes} min`;
+
+  return `${hours} h ${String(minutes).padStart(2, '0')} min`;
+};
