@@ -6,6 +6,12 @@ export const SESSION_MAX_AGE = 60 * 60 * 24 * 30;
 const encoder = new TextEncoder();
 
 const hmacKey = () => {
+  if (!secret) {
+    throw new Error(
+      'RECORDINGS_COOKIE_SECRET non è impostata: le sessioni della sezione registrazioni non possono essere firmate. Generane una con `openssl rand -hex 32`.',
+    );
+  }
+
   return crypto.subtle.importKey(
     'raw',
     encoder.encode(secret),
