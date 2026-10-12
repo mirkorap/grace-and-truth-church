@@ -14,3 +14,13 @@ export interface Card {
   imgSrc: string;
   imgAlt: string;
 }
+
+export interface FolderCard {
+  title: string;
+  text: string;
+  count: number;
+  href: string;
+  external: boolean;
+  imgSrc: string;
+  imgAlt: string;
+}

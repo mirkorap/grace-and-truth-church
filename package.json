@@ -12,13 +12,16 @@
     "format:fix": "prettier --write --ignore-path .gitignore .",
     "sync:sermons": "node scripts/sync-youtube-sermons.mjs",
     "sync:sermons:preview": "node scripts/sync-youtube-sermons.mjs --dry-run",
-    "sync:sermons:select": "node scripts/sync-youtube-sermons.mjs --select"
+    "sync:sermons:select": "node scripts/sync-youtube-sermons.mjs --select",
+    "sync:recordings": "node scripts/sync-recordings.mjs",
+    "sync:recordings:preview": "node scripts/sync-recordings.mjs --dry-run"
   },
   "dependencies": {
     "@portabletext/react": "^3.2.0",
     "@sanity/image-url": "^1.1.0",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
+    "aws4fetch": "^1.0.20",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.12",
     "next": "14.2.4",
