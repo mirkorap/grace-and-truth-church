@@ -36,7 +36,7 @@
  * command is safe to re-run after adding new files.
  */
 import { AwsClient } from 'aws4fetch';
-import { spawn } from 'node:child_process';
+import { spawn, spawnSync } from 'node:child_process';
 import {
   existsSync,
   mkdtempSync,
@@ -113,6 +113,16 @@ if (
   fail(
     'Missing one of R2_ACCOUNT_ID / R2_BUCKET / R2_ACCESS_KEY_ID / R2_SECRET_ACCESS_KEY.',
   );
+
+// Senza questo controllo il primo spawn fallisce con un ENOENT grezzo a metà
+// lavoro, quando le serie sono già state annunciate e sembra rotto altro.
+function requireBinary(name) {
+  if (spawnSync(name, ['-version'], { stdio: 'ignore' }).error)
+    fail(`${name} not found on PATH. Install it with: brew install ffmpeg`);
+}
+
+requireBinary('ffprobe');
+if (!DRY_RUN) requireBinary('ffmpeg');
 
 // ——— helpers ———
 function slugify(text) {
@@ -257,7 +267,42 @@ if (!folders.length)
     `No series folders found in ${DIR}${ONLY_SERIES ? ` matching "${ONLY_SERIES}"` : ''}.`,
   );
 
-const existing = new Set((await query('*[_type == "recording"]._id')) ?? []);
+// Indicizzate per (serie, slug) e non per _id: i documenti creati a mano
+// nello Studio hanno un _id casuale, e cercarli per id generato li
+// mancherebbe, creando un doppione con lo stesso slug.
+const existing = new Map(
+  (
+    (await query(
+      '*[_type == "recording"]{_id, "slug": slug.current, "series": series._ref}',
+    )) ?? []
+  ).map((doc) => [`${doc.series}|${doc.slug}`, doc._id]),
+);
+
+// Gli slug prodotti da slugify() sono solo [a-z0-9-], quindi interpolarli
+// nella query è sicuro.
+async function resolveSeriesId(title, slug) {
+  const [found] =
+    (await query(
+      `*[_type == "recordingSeries" && slug.current == "${slug}"][0...1]._id`,
+    )) ?? [];
+
+  if (found) return found;
+
+  const id = `recording-series-${slug}`;
+
+  await mutate([
+    {
+      createIfNotExists: {
+        _id: id,
+        _type: 'recordingSeries',
+        title,
+        slug: { _type: 'slug', current: slug },
+      },
+    },
+  ]);
+
+  return id;
+}
 
 const temp = mkdtempSync(join(tmpdir(), 'recordings-'));
 let converted = 0;
@@ -267,7 +312,6 @@ let bytes = 0;
 try {
   for (const folder of folders) {
     const seriesSlug = slugify(folder);
-    const seriesId = `recording-series-${seriesSlug}`;
 
     const files = readdirSync(join(DIR, folder))
       .filter((name) => AUDIO_EXTENSIONS.has(extname(name).toLowerCase()))
@@ -278,24 +322,16 @@ try {
 
     console.log(`\n▸ ${folder}  (${files.length} file)`);
 
-    await mutate([
-      {
-        createIfNotExists: {
-          _id: seriesId,
-          _type: 'recordingSeries',
-          title: folder,
-          slug: { _type: 'slug', current: seriesSlug },
-        },
-      },
-    ]);
+    const seriesId = await resolveSeriesId(folder, seriesSlug);
 
     for (const [index, file] of files.entries()) {
       const source = join(DIR, folder, file);
       const stats = statSync(source);
       const parsed = parseFilename(file, index, stats.mtime);
-      const docId = `recording-${seriesSlug}-${parsed.slug}`;
+      const known = existing.get(`${seriesId}|${parsed.slug}`);
+      const docId = known ?? `recording-${seriesSlug}-${parsed.slug}`;
 
-      if (existing.has(docId) && !FORCE) {
+      if (known && !FORCE) {
         console.log(`  · ${parsed.title} — già presente, salto`);
         skipped += 1;
         continue;
