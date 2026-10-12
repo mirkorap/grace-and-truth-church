@@ -2,6 +2,7 @@ import { today } from '@/libs/dates';
 import { client } from '@/src/sanity/client';
 import { Event } from '@/types/Event';
 import { BookCounts, SermonFilters, YearCounts } from '@/types/Filter';
+import { Recording, RecordingSeries } from '@/types/Recording';
 import { Sermon } from '@/types/Sermon';
 import { SanityDocument, groq } from 'next-sanity';
 
@@ -123,4 +124,49 @@ export const fetchEventCountsByYear = async (): Promise<YearCounts> => {
 
     return { ...acc, [year]: (acc[year] ?? 0) + 1 };
   }, {});
+};
+
+const seriesFields = groq`
+  title, description, externalUrl,
+  "slug": slug.current,
+  "image": image.asset->url,
+  "count": count(*[_type == "recording" && references(^._id)])
+`;
+
+export const fetchRecordingSeries = () => {
+  return client.fetch<SanityDocument<RecordingSeries>[]>(
+    groq`*[_type == "recordingSeries"] | order(title asc) { ${seriesFields} }`,
+    {},
+    options,
+  );
+};
+
+export const fetchRecordingSeriesBySlug = (slug: string) => {
+  return client.fetch<SanityDocument<RecordingSeries> | null>(
+    groq`*[_type == "recordingSeries" && slug.current == $slug][0] {
+      ${seriesFields}
+    }`,
+    { slug },
+    options,
+  );
+};
+
+export const fetchRecordingsBySeries = (slug: string) => {
+  return client.fetch<Recording[]>(
+    groq`*[_type == "recording" && series->slug.current == $slug]
+      | order(order asc, recordedAt asc) {
+        title, recordedAt, audioKey, duration, order,
+        "slug": slug.current
+      }`,
+    { slug },
+    options,
+  );
+};
+
+export const fetchRecordingSeriesSlugs = () => {
+  return client.fetch<string[]>(
+    groq`*[_type == "recordingSeries" && defined(slug.current)].slug.current`,
+    {},
+    options,
+  );
 };
